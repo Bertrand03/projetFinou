@@ -1,0 +1,10 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()" (ngSubmit)="changeColor()">
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="username">
+  </div>
+  <button type="submit" class="btn btn-primary">OK</button>
+</form>
+
+<!--<pre>-->
+  <!--{{loginForm.value | json}}-->
+<!--</pre>-->
