@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'projetFinou';
+  tableauDeMots: Array<{ id: number, motAnglais: string, motFrancais: string }>;
+
+  constructor() {
+
+    this.tableauDeMots = [];
+
+    this.tableauDeMots = [
+      {id: 0, motAnglais: 'Hello', motFrancais: 'Bonjour'},
+      {id: 1, motAnglais: 'Good bye', motFrancais: 'Au revoir'},
+      {id: 2, motAnglais: 'Church', motFrancais: 'Eglise'}
+    ];
+    console.log(this.tableauDeMots[1]);
+
+  }
 }
+
+
