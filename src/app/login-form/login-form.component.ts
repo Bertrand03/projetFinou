@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -8,7 +8,12 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
 
-  reponseUser: string;
+  @Input () id: number;
+  @Input () motFrancais: string;
+  @Input () motAnglais: string;
+  @Input () maListeDeMotsATrouver: Array<object>;
+  @Input () data: Array<object>;
+
 
   loginForm: FormGroup;
   constructor(private fb: FormBuilder) { }
@@ -19,7 +24,16 @@ export class LoginFormComponent implements OnInit {
     });
   }
   login() {
-    console.log('Données du formulaire...', this.loginForm.value);
-    this.reponseUser = this.loginForm.value;
+    console.log('Reponse User : ');
+    console.log(this.loginForm.value.username);
+    console.log('Id : ');
+    console.log(this.id);
+    console.log('motFrancais : ');
+    console.log(this.motFrancais);
+    console.log('motAnglais : ');
+    console.log(this.motAnglais);
+    if (this.loginForm.value.username === this.motAnglais) {
+      alert('Gagné');
+    }
   }
 }
