@@ -6,20 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  tableauDeMots: Array<{ id: number, motAnglais: string, motFrancais: string }>;
+  id: number;
+  motFrancais: string;
+  motAnglais: string;
+
+  maListeDeMotsATrouver: Array<{ id: number, motFrancais: string, motAnglais: string }> = [
+    {id: 0, motFrancais: 'Bonjour', motAnglais: 'Hello'},
+    {id: 1, motFrancais: 'Au revoir', motAnglais: 'Good bye'},
+    {id: 0, motFrancais: 'Chien', motAnglais: 'Dog'}
+  ];
 
   constructor() {
-
-    this.tableauDeMots = [];
-
-    this.tableauDeMots = [
-      {id: 0, motAnglais: 'Hello', motFrancais: 'Bonjour'},
-      {id: 1, motAnglais: 'Good bye', motFrancais: 'Au revoir'},
-      {id: 2, motAnglais: 'Church', motFrancais: 'Eglise'}
-    ];
-    console.log(this.tableauDeMots[1]);
-
   }
 }
-
 

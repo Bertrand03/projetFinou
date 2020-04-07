@@ -1,11 +1,16 @@
 <div class="container">
-
-  <app-tableau
-    [data]="tableauDeMots">
-  </app-tableau>
-
-  <app-login-form>
-
-  </app-login-form>
-
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes mots à trouver</h2>
+      <ul class="list-group">
+        <app-liste-mots
+          [id]="id"
+          [motFrancais]="motFrancais"
+          [motAnglais]="motAnglais"
+          [maListeDeMotsATrouver]="maListeDeMotsATrouver">
+        </app-liste-mots>
+      </ul>
+      <button class="btn btn-success">Valider</button>
+    </div>
+  </div>
 </div>

@@ -3,17 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TableauComponent } from './tableau/tableau.component';
-import { ItemTableauComponent } from './item-tableau/item-tableau.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { ListeMotsComponent } from './liste-mots/liste-mots.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableauComponent,
-    ItemTableauComponent,
-    LoginFormComponent
+    ListeMotsComponent
   ],
   imports: [
     BrowserModule,
