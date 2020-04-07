@@ -1,4 +1,7 @@
 <li class="list-group-item" *ngFor="let ligne of maListeDeMotsATrouver">
-  <h4>Mot N° : {{ligne.id}} -- Mot Français : {{ligne.motFrancais}} -- Statut : {{getStatus()}}</h4>
-  <input type="text" class="form-control">
+  <h4 [ngStyle]="{color: getColor()}">{{ligne.id}} -  Mot Français : {{ligne.motFrancais}} - Statut : {{getStatus()}}</h4>
+    <app-login-form>
+      <input type="text" class="form-control">
+    </app-login-form>
+  <button class="btn btn-success" (click)="motValideOuPas()">Valider</button>
 </li>

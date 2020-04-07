@@ -22,8 +22,12 @@ export class ListeMotsComponent implements OnInit {
   ngOnInit(): void {
   }
   getStatus() {
-    console.log('methode getStatus');
-    return this.motTrouve;
+    // console.log('methode getStatus');
+    // return this.motTrouve;
+  }
+  motValideOuPas() {
   }
 
+  getColor() {
+  }
 }
