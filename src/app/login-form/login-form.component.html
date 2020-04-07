@@ -1,5 +1,9 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <div class="form-group">
+<form [formGroup]="loginForm" (ngSubmit) ="login()">
+  <div class="form-group" >
+    <div style="width: 20px; height: 20px;background-color:green;"
+         *ngIf="motTrouve === 'oui'">
+    </div>
+
     <label>Reponse</label>
     <input type="text" class="form-control" formControlName="username">
   </div>
