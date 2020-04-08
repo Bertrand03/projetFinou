@@ -34,14 +34,19 @@ export class LoginFormComponent implements OnInit {
   login() {
     console.log('Score vaut : ');
     console.log(this.score);
-    console.log('Reponse User : ');
-    console.log(this.loginForm.value.username);
-    console.log('Mot trouve vaut : ');
-    console.log(this.motTrouve);
     if (this.loginForm.value.username === this.motAnglais) {
       this.motTrouve = 'oui';
+      this.score++;
+      this.getScore();
+      console.log('Score après if vaut : ');
+      console.log(this.score);
       console.log('Mot trouve vaut : ');
       console.log(this.motTrouve);
     }
+  }
+  getScore() {
+    this.scoreGlobal = this.scoreGlobal + this.score;
+    console.log('scoreGlobal vaut : ');
+    console.log(this.scoreGlobal);
   }
 }
