@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ListeMotsComponent } from './liste-mots/liste-mots.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import {ListeMotsService} from './services/liste-mots.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    ListeMotsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

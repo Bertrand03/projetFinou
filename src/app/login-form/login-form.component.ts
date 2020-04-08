@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {ListeMotsService} from '../services/liste-mots.service';
 
 @Component({
   selector: 'app-login-form',
@@ -21,16 +22,28 @@ export class LoginFormComponent implements OnInit {
   @Input() motTrouve: string;
   @Input() data: Array<object>;
   @Output() monOutput = new EventEmitter<number>();
+  @Input() indexOfArray: number;
 
   loginForm: FormGroup;
+  maListeDeMots = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       username: []
     });
+
+    this.maListeDeMots = this.listeMotsService.maListeDeMotsATrouver;
+  }
+
+  onValideUneReponse(indexOfArray: number) {
+    if (this.reponseUser === this.motAnglais) {
+      return this.listeMotsService.switchOnOne(indexOfArray);
+    }
+    this.maFonction();
+    console.log('lance maFonction()');
   }
 
   maFonction() {
