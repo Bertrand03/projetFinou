@@ -9,7 +9,7 @@ import {ListeMotsService} from './services/liste-mots.service';
 export class AppComponent implements OnInit {
 
   maListeDeMotsATrouver = [];
-
+  monScore = 0;
   constructor(private listeMotsService: ListeMotsService) {
   }
 

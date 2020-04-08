@@ -6,7 +6,9 @@
     <label>Reponse</label>
     <input type="text" class="form-control" formControlName="username">
   </div>
-    <button class="btn btn-success"(click)="onValideUneReponse(indexOfArray)">Valider</button>
+    <button class="btn btn-success"
+            (click)="onValideUneReponse(indexOfArray)"
+            [disabled]="motTrouve === 'oui'">Valider</button>
   <div>Nombre de tentatives : {{tentatives}}</div>
   </li>
 </form>

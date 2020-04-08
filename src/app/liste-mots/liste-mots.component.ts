@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ListeMotsService} from '../services/liste-mots.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class ListeMotsComponent implements OnInit {
   @Input() motAnglais: string;
   @Input() motTrouve: string;
   @Input() indexOfArray: number;
+  @Output() monOutput = new EventEmitter<number>();
 
   maListeDeMots = [];
   motStatus: string;

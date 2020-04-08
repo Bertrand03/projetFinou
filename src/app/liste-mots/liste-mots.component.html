@@ -1,6 +1,6 @@
   <li [ngClass]="{'list-group-item' : true,
-                'list-group-item-success': motTrouve === 'Trouvé!',
-                'list-group-item-danger': motTrouve === 'Non trouvé'}">
+                'list-group-item-success': motTrouve === 'oui',
+                'list-group-item-danger': motTrouve === 'non'}">
   <h4>{{id}}   -   {{motFrancais}}             -            Statut : {{getStatus()}}  </h4>
     <app-login-form
       [id]="id"

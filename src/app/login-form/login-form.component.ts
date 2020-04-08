@@ -10,10 +10,8 @@ import {ListeMotsService} from '../services/liste-mots.service';
 export class LoginFormComponent implements OnInit {
 
   reponseUser: string;
-  score = 0;
-  scoreGlobal = 0;
   tentatives = 0;
-  valideOuPas: boolean;
+  monScore = 0;
 
   @Input() id: number;
   @Input() motFrancais: string;
@@ -41,15 +39,11 @@ export class LoginFormComponent implements OnInit {
 
   onValideUneReponse(indexOfArray: number) {
     this.reponseUser = this.loginForm.value.username;
-    console.log('on entre dans onValideUneReponse. reponseUser vaut :')
-    console.log(this.reponseUser);
-    console.log('indexOfArray vaut : ');
-    console.log(indexOfArray);
     if (this.reponseUser === this.motAnglais) {
-      // this.exportStringToParent.emit(this.motTrouve);
-      console.log('On entre dans le if de onValideUneReponse')
-      console.log('motTrouve vaut : ');
-      console.log(this.motTrouve);
+      console.log('monScore vaut : ');
+      console.log(this.monScore);
+      this.monScore++;
+      this.maFonction();
       return this.listeMotsService.switchOnOne(indexOfArray);
     }
     console.log('on lance maFonction()');
@@ -59,6 +53,7 @@ export class LoginFormComponent implements OnInit {
   maFonction() {
       this.tentatives++;
       this.monOutput.emit(this.tentatives);
+      this.monOutput.emit(this.monScore);
   }
 
   login() {

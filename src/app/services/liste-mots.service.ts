@@ -19,7 +19,7 @@ export class ListeMotsService {
     {id: 15, motFrancais: 'Meriter', motAnglais: 'To deserve', motTrouve: 'non'},
     {id: 16, motFrancais: 'Eviter', motAnglais: 'To avoid', motTrouve: 'non'},
     {id: 17, motFrancais: 'Bateau (2 mots)', motAnglais: 'Boat, ship', motTrouve: 'non'},
-    {id: 18, motFrancais: 'Une cabane', motAnglais: 'A hut', motTrouve: 'non'},
+    {id: 18, motFrancais: 'Une cabane', motAnglais: 'Hut', motTrouve: 'non'},
     {id: 19, motFrancais: 'Colibri', motAnglais: 'Humming bird', motTrouve: 'non'},
     {id: 20, motFrancais: 'Ile (2 mots)', motAnglais: 'Island, isle', motTrouve: 'non'},
     {id: 21, motFrancais: 'Plonger', motAnglais: 'To dive', motTrouve: 'non'},
@@ -27,18 +27,18 @@ export class ListeMotsService {
     {id: 23, motFrancais: 'Gonflable', motAnglais: 'Inflatable', motTrouve: 'non'},
     {id: 24, motFrancais: 'Naviguer', motAnglais: 'To navigate', motTrouve: 'non'},
     {id: 25, motFrancais: 'Decouvrir', motAnglais: 'To discover', motTrouve: 'non'},
-    {id: 26, motFrancais: 'Des specialites', motAnglais: 'Specialties', motTrouve: 'non'},
+    {id: 26, motFrancais: 'Specialites', motAnglais: 'Specialties', motTrouve: 'non'},
     {id: 27, motFrancais: 'Creme solaire', motAnglais: 'Solar cream', motTrouve: 'non'},
     {id: 28, motFrancais: 'Volcan', motAnglais: 'Volcano', motTrouve: 'non'},
     {id: 29, motFrancais: 'Jumelles de vue', motAnglais: 'Binoculars', motTrouve: 'non'},
-    {id: 30, motFrancais: 'La côte', motAnglais: 'The coast', motTrouve: 'non'},
+    {id: 30, motFrancais: 'Côte', motAnglais: 'Coast', motTrouve: 'non'},
     {id: 31, motFrancais: 'Coquillage', motAnglais: 'Sea shell', motTrouve: 'non'},
     {id: 32, motFrancais: 'Manioc', motAnglais: 'Cassava', motTrouve: 'non'},
     {id: 33, motFrancais: 'Etre malade (2 mots)', motAnglais: 'To be ill, to be sick', motTrouve: 'non'},
     {id: 34, motFrancais: 'Chercher (2 mots)', motAnglais: 'To look for, to seek', motTrouve: 'non'},
     {id: 35, motFrancais: 'Glissant', motAnglais: 'Slippery', motTrouve: 'non'},
     {id: 36, motFrancais: 'Clair de lune', motAnglais: 'Moonlight', motTrouve: 'non'},
-    {id: 37, motFrancais: 'Un talon', motAnglais: 'A heel', motTrouve: 'non'},
+    {id: 37, motFrancais: 'Talon', motAnglais: 'Heel', motTrouve: 'non'},
     {id: 38, motFrancais: 'Bronzer', motAnglais: 'To tan', motTrouve: 'non'},
     {id: 39, motFrancais: 'Casque', motAnglais: 'Helmet', motTrouve: 'non'},
     {id: 40, motFrancais: 'Etoile de mer', motAnglais: 'Starfish', motTrouve: 'non'},
@@ -92,8 +92,8 @@ export class ListeMotsService {
 
   switchOnOne(indexOfArray: number) {
     console.log('appel à switchOnOne / Service');
-    console.log('motTrouve vaut : ');
-    console.log(this.maListeDeMotsATrouver[indexOfArray].motTrouve);
     this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
+    // console.log('motTrouve vaut : ');
+    // console.log(this.maListeDeMotsATrouver[indexOfArray].motTrouve);
   }
 }
