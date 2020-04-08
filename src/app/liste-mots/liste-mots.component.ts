@@ -15,6 +15,7 @@ export class ListeMotsComponent implements OnInit {
   @Input() indexOfArray: number;
 
   maListeDeMots = [];
+  motStatus: string;
   constructor(private listeMotsService: ListeMotsService) {
   }
 
@@ -34,7 +35,12 @@ export class ListeMotsComponent implements OnInit {
 
 
   getStatus() {
-    return this.motTrouve;
+    if (this.motTrouve === 'oui') {
+      this.motStatus = 'Trouvé!';
+    } else if (this.motTrouve === 'non') {
+      this.motStatus = 'Non trouvé';
+    }
+    return this.motStatus;
   }
 
   getColor() {

@@ -1,20 +1,11 @@
-<form [formGroup]="loginForm" (ngSubmit) ="login()">
+<form [formGroup]="loginForm">
   <li [ngClass]="{'list-group-item' : true,
                 'list-group-item-success': motTrouve === 'oui',
                 'list-group-item-danger': motTrouve === 'non'}">
   <div class="form-group" >
-    <!--<div style="width: 20px; height: 20px;background-color:green;"-->
-         <!--*ngIf="motTrouve === 'oui'">-->
-    <!--</div>-->
-    <!--<div style="width: 20px; height: 20px;background-color:red;"-->
-         <!--*ngIf="motTrouve === 'non'">-->
-    <!--</div>-->
-
-
     <label>Reponse</label>
     <input type="text" class="form-control" formControlName="username">
   </div>
-  <!--<button class="btn btn-success" (click)="maFonction()" [disabled]="valideOuPas">Valider</button>-->
     <button class="btn btn-success"(click)="onValideUneReponse(indexOfArray)">Valider</button>
   <div>Nombre de tentatives : {{tentatives}}</div>
   </li>

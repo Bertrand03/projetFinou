@@ -85,12 +85,15 @@ export class ListeMotsService {
   ];
 
   switchOnAll() {
-    for (let ligne of this.maListeDeMotsATrouver){
+    for (let ligne of this.maListeDeMotsATrouver) {
       ligne.motTrouve = 'oui';
     }
   }
 
   switchOnOne(indexOfArray: number) {
+    console.log('appel à switchOnOne / Service');
+    console.log('motTrouve vaut : ');
+    console.log(this.maListeDeMotsATrouver[indexOfArray].motTrouve);
     this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
   }
 }

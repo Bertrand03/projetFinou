@@ -22,6 +22,7 @@ export class LoginFormComponent implements OnInit {
   @Input() motTrouve: string;
   @Input() data: Array<object>;
   @Output() monOutput = new EventEmitter<number>();
+  @Output() exportStringToParent = new EventEmitter<string>();
   @Input() indexOfArray: number;
 
   loginForm: FormGroup;
@@ -39,11 +40,20 @@ export class LoginFormComponent implements OnInit {
   }
 
   onValideUneReponse(indexOfArray: number) {
+    this.reponseUser = this.loginForm.value.username;
+    console.log('on entre dans onValideUneReponse. reponseUser vaut :')
+    console.log(this.reponseUser);
+    console.log('indexOfArray vaut : ');
+    console.log(indexOfArray);
     if (this.reponseUser === this.motAnglais) {
+      // this.exportStringToParent.emit(this.motTrouve);
+      console.log('On entre dans le if de onValideUneReponse')
+      console.log('motTrouve vaut : ');
+      console.log(this.motTrouve);
       return this.listeMotsService.switchOnOne(indexOfArray);
     }
+    console.log('on lance maFonction()');
     this.maFonction();
-    console.log('lance maFonction()');
   }
 
   maFonction() {
@@ -56,13 +66,7 @@ export class LoginFormComponent implements OnInit {
     console.log('reponseUser vaut : ');
     console.log(this.reponseUser);
     if (this.loginForm.value.username === this.motAnglais) {
-      this.motTrouve = 'oui';
-      this.valideOuPas = true;
-      // this.getScore();
-      // console.log('Score après if vaut : ');
-      // console.log(this.score);
-      // console.log('Mot trouve vaut : ');
-      // console.log(this.motTrouve);
+      // this.motTrouve = 'oui';
     }
   }
 
