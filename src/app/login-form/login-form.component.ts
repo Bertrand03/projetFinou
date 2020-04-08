@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -8,9 +8,11 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
 
+  reponseUser: string;
   score = 0;
   scoreGlobal = 0;
-  motValide: 'non';
+  tentatives = 0;
+  valideOuPas: boolean;
 
   @Input() id: number;
   @Input() motFrancais: string;
@@ -18,7 +20,7 @@ export class LoginFormComponent implements OnInit {
   @Input() maListeDeMotsATrouver: Array<object>;
   @Input() motTrouve: string;
   @Input() data: Array<object>;
-
+  @Output() monOutput = new EventEmitter<number>();
 
   loginForm: FormGroup;
 
@@ -31,22 +33,24 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+  maFonction() {
+      this.tentatives++;
+      this.monOutput.emit(this.tentatives);
+  }
+
   login() {
-    console.log('Score vaut : ');
-    console.log(this.score);
+    this.reponseUser = this.loginForm.value.username;
+    console.log('reponseUser vaut : ');
+    console.log(this.reponseUser);
     if (this.loginForm.value.username === this.motAnglais) {
       this.motTrouve = 'oui';
-      this.score++;
-      this.getScore();
-      console.log('Score après if vaut : ');
-      console.log(this.score);
-      console.log('Mot trouve vaut : ');
-      console.log(this.motTrouve);
+      this.valideOuPas = true;
+      // this.getScore();
+      // console.log('Score après if vaut : ');
+      // console.log(this.score);
+      // console.log('Mot trouve vaut : ');
+      // console.log(this.motTrouve);
     }
   }
-  getScore() {
-    this.scoreGlobal = this.scoreGlobal + this.score;
-    console.log('scoreGlobal vaut : ');
-    console.log(this.scoreGlobal);
-  }
+
 }

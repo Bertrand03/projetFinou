@@ -11,4 +11,7 @@
     <label>Reponse</label>
     <input type="text" class="form-control" formControlName="username">
   </div>
+  <button class="btn btn-success" (click)="maFonction()" [disabled]="valideOuPas">Valider</button>
+  <!--<button (click)="maFonction($event)">Bouton maFonction()</button>-->
+  <div>Nombre de tentatives : {{tentatives}}</div>
 </form>
