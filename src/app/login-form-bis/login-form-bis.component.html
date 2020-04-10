@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm">
+  <li [ngClass]="{'list-group-item' : true,
+                'list-group-item-success': motTrouve === 'oui',
+                'list-group-item-danger': motTrouve === 'non'}">
+    <div class="form-group" >
+      <label>Reponse</label>
+      <input type="text" class="form-control" formControlName="userMotBis">
+    </div>
+    <button class="btn btn-success"
+            (click)="onValideUneReponseBis(indexOfArrayBis)"
+            [disabled]="motTrouve === 'oui'">Valider</button>
+    <div>Nombre de tentatives : {{tentativesBis}}</div>
+    <button (click)="testerLaPosition()">Tester la position</button>
+  </li>
+</form>

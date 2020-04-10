@@ -9,11 +9,13 @@ import {ListeMotsService} from './services/liste-mots.service';
 export class AppComponent implements OnInit {
 
   maListeDeMotsATrouver = [];
+  maListeDeMotsATrouverBis = [];
   constructor(private listeMotsService: ListeMotsService) {
   }
 
   ngOnInit() {
     this.maListeDeMotsATrouver = this.listeMotsService.maListeDeMotsATrouver;
+    this.maListeDeMotsATrouverBis = this.listeMotsService.maListeDeMotsATrouverBis;
   }
 }
 

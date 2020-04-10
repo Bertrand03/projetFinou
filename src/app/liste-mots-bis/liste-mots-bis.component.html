@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="let ligne of listeMotsATrouverBis; let i = index;">
+    <h4>Id : {{ligne.id}} - Mot Anglais : {{ligne.motAnglais}} - Statut : {{ligne.motTrouve}}</h4>
+    <app-login-form-bis
+      [id]="ligne.id"
+      [motAnglais]="ligne.motAnglais"
+      [motFrancais]="ligne.motFrancais"
+      [motTrouve]="ligne.motTrouve"
+      [indexOfArrayBis]="i">
+    </app-login-form-bis>
+  </li>
+</ul>
+

@@ -11,6 +11,7 @@ export class LoginFormComponent implements OnInit {
 
   reponseUser: string;
   tentatives = 0;
+  tentativesBis = 0;
   monScore = 0;
 
   @Input() id: number;
@@ -22,9 +23,11 @@ export class LoginFormComponent implements OnInit {
   @Output() monOutput = new EventEmitter<number>();
   @Output() exportStringToParent = new EventEmitter<string>();
   @Input() indexOfArray: number;
+  @Input() indexOfArrayBis: number;
 
   loginForm: FormGroup;
   maListeDeMots = [];
+  maListeDeMotsBis = [];
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
@@ -46,6 +49,13 @@ export class LoginFormComponent implements OnInit {
       this.maFonction();
       return this.listeMotsService.switchOnOne(indexOfArray);
     }
+    console.log('Quizz 1')
+    console.log('reponseUser vaut : ');
+    console.log(this.reponseUser);
+    console.log('motAnglais vaut : ');
+    console.log(this.motAnglais);
+    console.log('indexOfArray vaut : ');
+    console.log(this.indexOfArray);
     console.log('on lance maFonction()');
     this.maFonction();
   }
@@ -64,5 +74,4 @@ export class LoginFormComponent implements OnInit {
       // this.motTrouve = 'oui';
     }
   }
-
 }

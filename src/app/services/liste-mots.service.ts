@@ -84,6 +84,15 @@ export class ListeMotsService {
     {id: 80, motFrancais: 'Actuellement', motAnglais: 'Currently', motTrouve: 'non'}
   ];
 
+  maListeDeMotsATrouverBis = [
+    {id: 0, motAnglais: 'Hello', motFrancais: 'Bonjour', motTrouve: 'non'},
+    {id: 1, motAnglais: 'Good bye', motFrancais: 'Au revoir', motTrouve: 'non'},
+    {id: 2, motAnglais: 'Bird', motFrancais: 'Oiseau', motTrouve: 'non'}
+  ];
+
+  maListeTransfert = [{}];
+
+
   switchOnAll() {
     for (let ligne of this.maListeDeMotsATrouver) {
       ligne.motTrouve = 'oui';
@@ -95,5 +104,19 @@ export class ListeMotsService {
     this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
     // console.log('motTrouve vaut : ');
     // console.log(this.maListeDeMotsATrouver[indexOfArray].motTrouve);
+  }
+  switchOnOneBis(indexOfArrayBis: number) {
+    console.log('appel à switchOnOneBis / Service');
+    this.maListeDeMotsATrouverBis[indexOfArrayBis].motTrouve = 'oui';
+    console.log('motTrouve après méthode du Service vaut : ');
+    console.log(this.maListeDeMotsATrouverBis[indexOfArrayBis].motTrouve);
+  }
+
+  testerLaPositionsrv() {
+    let i = 0;
+    for (let ligne of this.maListeDeMotsATrouver) {
+      console.log(ligne[i]);
+      i++;
+    }
   }
 }

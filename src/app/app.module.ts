@@ -10,11 +10,15 @@ import {ListeMotsService} from './services/liste-mots.service';
 import { AuthComponent } from './auth/auth.component';
 import {AuthService} from './services/auth.service';
 import {RouterModule, Routes} from '@angular/router';
+import { ListeMotsBisComponent } from './liste-mots-bis/liste-mots-bis.component';
+import { LoginFormBisComponent } from './login-form-bis/login-form-bis.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
   {path: 'liste-mots', component: ListeMotsComponent},
-  {path: '', component: ListeMotsComponent}
+  {path: 'liste-mots-bis', component: ListeMotsBisComponent},
+  {path: '', component: AuthComponent},
+  {path: '**', component: AuthComponent}
 ]
 
 @NgModule({
@@ -22,7 +26,9 @@ const routes: Routes = [
     AppComponent,
     ListeMotsComponent,
     LoginFormComponent,
-    AuthComponent
+    AuthComponent,
+    ListeMotsBisComponent,
+    LoginFormBisComponent
   ],
   imports: [
     BrowserModule,
