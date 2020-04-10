@@ -20,6 +20,7 @@ export class LoginFormBisComponent implements OnInit {
   loginForm: FormGroup;
   tentativesBis = 0;
   reponseUser: string;
+  motStatusBis: any;
 
   constructor(private listeMotsService: ListeMotsService, private fb: FormBuilder) { }
 
@@ -43,36 +44,21 @@ export class LoginFormBisComponent implements OnInit {
     // console.log(this.motTrouve);
     this.reponseUser = this.loginForm.value.userMotBis;
     if (this.reponseUser === this.motFrancais) {
+      this.motStatusBis = this.listeMotsService.switchOnOneBis(indexOfArrayBis);
       this.mesCompteurs();
       return this.listeMotsService.switchOnOneBis(indexOfArrayBis);
     }
+    console.log('motStatusBis apres service vaut : ');
+    console.log(this.motStatusBis);
     this.mesCompteurs();
   }
   mesCompteurs() {
     this.tentativesBis++;
+    this.motTrouve = this.motStatusBis
     this.monOutputBis.emit(this.motTrouve);
   }
 
-  testerLaPosition() {
-    this.listeMotsService.testerLaPositionsrv();
-  }
-
-
-  // onValideUneReponseBis(indexOfArrayBis: number) {
-  //   this.reponseUser = this.loginForm.value.userMotBis;
-  //   if (this.reponseUser === this.motFrancais) {
-  //     return this.listeMotsService.switchOnOne(indexOfArrayBis);
-  //   }
-  //   console.log('Quizz 2')
-  //   console.log('reponseUser vaut : ');
-  //   console.log(this.reponseUser);
-  //   console.log('motAnglais vaut : ');
-  //   console.log(this.motAnglais);
-  //   console.log('indexOfArray vaut : ');
-  //   console.log(this.indexOfArrayBis);
-  //   console.log('on lance maFonction()');
+  // testerLaPosition() {
+  //   this.listeMotsService.testerLaPositionsrv();
   // }
-
-
-
 }

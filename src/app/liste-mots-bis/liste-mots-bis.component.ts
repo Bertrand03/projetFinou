@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ListeMotsService} from '../services/liste-mots.service';
 
 
@@ -10,6 +10,8 @@ import {ListeMotsService} from '../services/liste-mots.service';
 export class ListeMotsBisComponent implements OnInit {
 
   @Input () indexOfArrayBis: number;
+  @Input () motTrouve: string;
+  @Output () monOutputBis = new EventEmitter();
 
   listeMotsATrouverBis = [];
 
@@ -18,5 +20,11 @@ export class ListeMotsBisComponent implements OnInit {
   ngOnInit() {
     this.listeMotsATrouverBis = this.listeMotsService.maListeDeMotsATrouverBis;
   }
+  // getStatus() {
+  //   console.log('lance getStatus(), mot trouve vaut : ');
+  //   console.log(this.motTrouve);
+  //   this.listeMotsService.maListeDeMotsATrouverBis
+  //   return this.monOutputBis.emit(this.motTrouve);
+  // }
 
 }
