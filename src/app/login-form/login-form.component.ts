@@ -25,6 +25,15 @@ export class LoginFormComponent implements OnInit {
   maListeDeMots = [];
   scoreJoueur = 0;
   nbReponses = this.listeMotsService.maListeDeMotsATrouver.length;
+  cptNbOui = 0;
+
+  msbapTitle = 'Audio Title';
+  msbapAudioUrl = 'C:/Users/bertrand.cerot/Downloads/applause.mp3';
+  msbapDisplayTitle = false;
+  msbapDisplayVolumeControls = false;
+  displayPlayer = false;
+
+  audio: any;
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
@@ -36,31 +45,68 @@ export class LoginFormComponent implements OnInit {
 
     this.maListeDeMots = this.listeMotsService.maListeDeMotsATrouver;
     // this.scoreJoueur = this.listeMotsService.scoreGlobal;
+
+    this.audio = new Audio();
+    this.audio.src = '../../assets/audio1/applause.mp3';
+    this.audio.load();
+
   }
 
   onValideUneReponse(indexOfArray: number) {
     this.reponseUser = this.loginForm.value.username;
-    console.log('Quizz 1')
-    console.log('reponseUser vaut : ');
-    console.log(this.reponseUser);
-    console.log('motAnglais vaut : ');
-    console.log(this.motAnglais);
-    console.log('indexOfArray vaut : ');
-    console.log(this.indexOfArray);
+    // console.log('Quizz 1')
+    // console.log('reponseUser vaut : ');
+    // console.log(this.reponseUser);
+    // console.log('motAnglais vaut : ');
+    // console.log(this.motAnglais);
+    // console.log('indexOfArray vaut : ');
+    // console.log(this.indexOfArray);
     if (this.reponseUser === this.motAnglais) {
+      // this.cptNbOui++
+      // console.log('cptNbOui si juste vaut : ');
+      // console.log(this.cptNbOui);
+      this.listeMotsService.switchOnOne(indexOfArray);
       this.maFonction();
-      return this.listeMotsService.switchOnOne(indexOfArray);
+      this.combienDeOui();
+      return null;
     }
-    console.log('on lance maFonction()');
+    // console.log('on lance maFonction()');
     this.maFonction();
+    // console.log('cptNbOui vaut : ');
+    // console.log(this.cptNbOui);
+  }
+
+  combienDeOui() {
+    console.log('lance combienDeOui()');
+    this.cptNbOui = 0;
+    for (let i = 0; i < 5; i++) {
+      // console.log(this.listeMotsService.maListeDeMotsATrouver[i].motAnglais + ' vaut : ' +
+      //   this.listeMotsService.maListeDeMotsATrouver[i].motTrouve);
+      if (this.maListeDeMots[i].motTrouve === 'oui') {
+        this.cptNbOui++;
+        console.log('cptNbOui vaut : ' + this.cptNbOui);
+        console.log('Taille du tableau : ' + this.listeMotsService.maListeDeMotsATrouver.length);
+      }
+    }
+    if (this.cptNbOui === this.listeMotsService.maListeDeMotsATrouver.length) {
+      console.log('Quizz terminé, lance audio');
+      this.playAudio();
+    }
+  }
+
+  playAudio() {
+    // let audio = new Audio('assets/audio1/applause.mp3');
+    // audio.src = 'C:/Users/bertrand.cerot/Downloads/applause.mp3';
+    // audio.load();
+    this.audio.play();
   }
 
   maFonction() {
       this.tentatives++;
       this.monOutput.emit(this.tentatives);
       this.monOutput.emit(this.scoreJoueur);
-      console.log('dans maFonction(), scoreJoueur vaut : ');
-      console.log(this.scoreJoueur);
+      // console.log('dans maFonction(), scoreJoueur vaut : ');
+      // console.log(this.scoreJoueur);
   }
 
   onSave() {
@@ -70,8 +116,8 @@ export class LoginFormComponent implements OnInit {
 
   onCount() {
     this.scoreJoueur = this.listeMotsService.getScoreGlobal();
-    console.log('passe dans onCount(login-form). scoreJoueur vaut : ');
-    console.log(this.scoreJoueur);
+    // console.log('passe dans onCount(login-form). scoreJoueur vaut : ');
+    // console.log(this.scoreJoueur);
     this.monOutput.emit(this.scoreJoueur);
   }
 

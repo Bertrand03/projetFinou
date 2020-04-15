@@ -17,6 +17,7 @@ export class AideComponent implements OnInit {
   monMotAide = ' ';
   indice = 0;
   longueurDuMot = 0;
+  penaliteAide = 0;
 
   constructor(private listeMotsService: ListeMotsService) { }
 
@@ -31,6 +32,12 @@ export class AideComponent implements OnInit {
       console.log(this.motAnglais[this.indice]);
       this.monMotAide = this.monMotAide + this.motAnglais[this.indice];
       this.indice++;
+    }
+  }
+
+  onCalculPenalite() {
+    if (this.penaliteAide < 1) {
+      this.penaliteAide++;
     }
   }
 }

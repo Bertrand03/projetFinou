@@ -209,7 +209,7 @@ export class ListeMotsService {
   }
 
   switchOnOne(indexOfArray: number) {
-    console.log('appel à switchOnOne / Service');
+    // console.log('appel à switchOnOne / Service');
     this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
     // console.log('motTrouve vaut : ');
     // console.log(this.maListeDeMotsATrouver[indexOfArray].motTrouve);
@@ -236,15 +236,15 @@ export class ListeMotsService {
 
   getScoreGlobal() {
     this.scoreFinal = 0;
-    console.log('passe dans getScoreGlobal(service). RAZ scoreFinal vaut : ');
-    console.log(this.scoreFinal);
+    // console.log('passe dans getScoreGlobal(service). RAZ scoreFinal vaut : ');
+    // console.log(this.scoreFinal);
     for (let i = 0; i < this.maListeDeMotsATrouver.length; i++) {
       if (this.maListeDeMotsATrouver[i].motTrouve === 'oui') {
         this.scoreFinal++;
       }
     }
-    console.log('scoreFinal après boucle for vaut : ');
-    console.log(this.scoreFinal);
+    // console.log('scoreFinal après boucle for vaut : ');
+    // console.log(this.scoreFinal);
     return this.scoreFinal;
   }
 }
