@@ -1,3 +1,8 @@
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+@Injectable()
+
 export class ListeMotsService {
 
   maListeDeMotsATrouver: Array<{ id: number, motFrancais: string, motAnglais: string, motTrouve: string }> = [
@@ -102,12 +107,12 @@ export class ListeMotsService {
     {id: 14, motFrancais: 'Coup de soleil', motAnglais: 'Sunburn', motTrouve: 'non'},
     {id: 15, motFrancais: 'Meriter', motAnglais: 'To deserve', motTrouve: 'non'},
     {id: 16, motFrancais: 'Eviter', motAnglais: 'To avoid', motTrouve: 'non'},
-    {id: 17, motFrancais: 'Bateau (2 mots)', motAnglais: 'Boat, ship', motTrouve: 'non'},
-    {id: 18, motFrancais: 'Une cabane', motAnglais: 'Hut', motTrouve: 'non'},
+    {id: 17, motFrancais: 'Bateau', motAnglais: 'Boat, ship', motTrouve: 'non'},
+    {id: 18, motFrancais: 'Cabane', motAnglais: 'Hut', motTrouve: 'non'},
     {id: 19, motFrancais: 'Colibri', motAnglais: 'Humming bird', motTrouve: 'non'},
-    {id: 20, motFrancais: 'Ile (2 mots)', motAnglais: 'Island, isle', motTrouve: 'non'},
+    {id: 20, motFrancais: 'Ile', motAnglais: 'Island, isle', motTrouve: 'non'},
     {id: 21, motFrancais: 'Plonger', motAnglais: 'To dive', motTrouve: 'non'},
-    {id: 22, motFrancais: 'Bouée', motAnglais: 'Buoy', motTrouve: 'non'},
+    {id: 22, motFrancais: 'Bouee', motAnglais: 'Buoy', motTrouve: 'non'},
     {id: 23, motFrancais: 'Gonflable', motAnglais: 'Inflatable', motTrouve: 'non'},
     {id: 24, motFrancais: 'Naviguer', motAnglais: 'To navigate', motTrouve: 'non'},
     {id: 25, motFrancais: 'Decouvrir', motAnglais: 'To discover', motTrouve: 'non'},
@@ -115,11 +120,11 @@ export class ListeMotsService {
     {id: 27, motFrancais: 'Creme solaire', motAnglais: 'Solar cream', motTrouve: 'non'},
     {id: 28, motFrancais: 'Volcan', motAnglais: 'Volcano', motTrouve: 'non'},
     {id: 29, motFrancais: 'Jumelles de vue', motAnglais: 'Binoculars', motTrouve: 'non'},
-    {id: 30, motFrancais: 'Côte', motAnglais: 'Coast', motTrouve: 'non'},
+    {id: 30, motFrancais: 'Cote', motAnglais: 'Coast', motTrouve: 'non'},
     {id: 31, motFrancais: 'Coquillage', motAnglais: 'Sea shell', motTrouve: 'non'},
     {id: 32, motFrancais: 'Manioc', motAnglais: 'Cassava', motTrouve: 'non'},
-    {id: 33, motFrancais: 'Etre malade (2 mots)', motAnglais: 'To be ill, to be sick', motTrouve: 'non'},
-    {id: 34, motFrancais: 'Chercher (2 mots)', motAnglais: 'To look for, to seek', motTrouve: 'non'},
+    {id: 33, motFrancais: 'Etre malade', motAnglais: 'To be ill, to be sick', motTrouve: 'non'},
+    {id: 34, motFrancais: 'Chercher', motAnglais: 'To look for, to seek', motTrouve: 'non'},
     {id: 35, motFrancais: 'Glissant', motAnglais: 'Slippery', motTrouve: 'non'},
     {id: 36, motFrancais: 'Clair de lune', motAnglais: 'Moonlight', motTrouve: 'non'},
     {id: 37, motFrancais: 'Talon', motAnglais: 'Heel', motTrouve: 'non'},
@@ -142,14 +147,14 @@ export class ListeMotsService {
     {id: 54, motFrancais: 'Prendre soin de', motAnglais: 'To take care', motTrouve: 'non'},
     {id: 55, motFrancais: 'Etre prudent', motAnglais: 'To be careful', motTrouve: 'non'},
     {id: 56, motFrancais: 'Au dessus', motAnglais: 'Above', motTrouve: 'non'},
-    {id: 57, motFrancais: 'En dessous (2 mots)', motAnglais: 'Below, under', motTrouve: 'non'},
+    {id: 57, motFrancais: 'En dessous', motAnglais: 'Below, under', motTrouve: 'non'},
     {id: 58, motFrancais: 'Presque', motAnglais: 'Almost', motTrouve: 'non'},
     {id: 59, motFrancais: 'Deja', motAnglais: 'Already', motTrouve: 'non'},
     {id: 60, motFrancais: 'Autour', motAnglais: 'Around', motTrouve: 'non'},
     {id: 61, motFrancais: 'Etape', motAnglais: 'Step', motTrouve: 'non'},
     {id: 62, motFrancais: 'Telechargement en cours', motAnglais: 'Downloading in progress', motTrouve: 'non'},
     {id: 63, motFrancais: 'En panne', motAnglais: 'Out of order', motTrouve: 'non'},
-    {id: 64, motFrancais: 'Une file d\'attente', motAnglais: 'A queue', motTrouve: 'non'},
+    {id: 64, motFrancais: 'File d\'attente', motAnglais: 'A queue', motTrouve: 'non'},
     {id: 65, motFrancais: 'Faire la queue', motAnglais: 'To queue', motTrouve: 'non'},
     {id: 66, motFrancais: 'Mettre en file d\'attente', motAnglais: 'To put in queue', motTrouve: 'non'},
     {id: 67, motFrancais: 'Sauter', motAnglais: 'To jump', motTrouve: 'non'},
@@ -168,8 +173,34 @@ export class ListeMotsService {
     {id: 80, motFrancais: 'Actuellement', motAnglais: 'Currently', motTrouve: 'non'}
   ];
 
-  // maListeTransfert: Array<{id: number, motAnglais: string; motFrancais: string, motTrouve: string}>;
-  maListeTransfert: Array<object>;
+  temporel = [
+    {id: 0, motAnglais: 'Monday', motFrancais: 'Lundi', motTrouve: 'non'},
+    {id: 1, motAnglais: 'Tuesday', motFrancais: 'Mardi', motTrouve: 'non'},
+    {id: 2, motAnglais: 'Wednesday', motFrancais: 'Mercredi', motTrouve: 'non'},
+    {id: 3, motAnglais: 'Thursday', motFrancais: 'Jeudi', motTrouve: 'non'},
+    {id: 4, motAnglais: 'Friday', motFrancais: 'Vendredi', motTrouve: 'non'},
+    {id: 5, motAnglais: 'Saturday', motFrancais: 'Samedi', motTrouve: 'non'},
+    {id: 6, motAnglais: 'Sunday', motFrancais: 'Dimanche', motTrouve: 'non'},
+    {id: 7, motAnglais: 'January', motFrancais: 'Janvier', motTrouve: 'non'},
+    {id: 8, motAnglais: 'February', motFrancais: 'Fevrier', motTrouve: 'non'},
+    {id: 9, motAnglais: 'March', motFrancais: 'Mars', motTrouve: 'non'},
+    {id: 10, motAnglais: 'April', motFrancais: 'Avril', motTrouve: 'non'},
+    {id: 11, motAnglais: 'May', motFrancais: 'Mai', motTrouve: 'non'},
+    {id: 12, motAnglais: 'June', motFrancais: 'Juin', motTrouve: 'non'},
+    {id: 13, motAnglais: 'July', motFrancais: 'Juillet', motTrouve: 'non'},
+    {id: 14, motAnglais: 'August', motFrancais: 'Aout', motTrouve: 'non'},
+    {id: 15, motAnglais: 'September', motFrancais: 'Septembre', motTrouve: 'non'},
+    {id: 16, motAnglais: 'October', motFrancais: 'Octobre', motTrouve: 'non'},
+    {id: 17, motAnglais: 'November', motFrancais: 'Novembre', motTrouve: 'non'},
+    {id: 18, motAnglais: 'December', motFrancais: 'Decembre', motTrouve: 'non'}
+  ];
+
+  scoreGlobal = 12;
+  scoreFinal = 0;
+
+  constructor(private httpClient: HttpClient) {
+  }
+
 
   switchOnAll() {
     for (let ligne of this.maListeDeMotsATrouver) {
@@ -190,16 +221,30 @@ export class ListeMotsService {
     console.log(this.maListeDeMotsATrouverBis[indexOfArrayBis].motTrouve);
   }
 
-  // testerLaPositionsrv() {
-  //   let i = 0;
-  //   this.maListeTransfert = [];
-  //   for (let ligne of this.maListeDeMotsATrouver) {
-  //     console.log('lignes boucle For');
-  //     console.log(ligne.id + ' ' + ligne.motFrancais + ' ' + ligne.motAnglais + ' ' + ligne.motTrouve);
-  //     this.maListeTransfert.push({id: i, motAnglais: ligne.motAnglais, motFrancais: ligne.motFrancais, motTrouve: ligne.motTrouve});
-  //     i++;
-  //   }
-  //   console.log('maListeTransfert');
-  //   console.log(this.maListeTransfert);
-  // }
+  saveWordsToServer() {
+    this.httpClient
+      .put('https://http-client-demo-5f545.firebaseio.com/liste-mots.json', this.maListeDeMotsATrouver)
+      .subscribe(
+        () => {
+          console.log('Enregistrement terminé');
+        },
+        (error) => {
+          console.log('Erreur de sauvegarde : ' + error);
+        }
+      );
+  }
+
+  getScoreGlobal() {
+    this.scoreFinal = 0;
+    console.log('passe dans getScoreGlobal(service). RAZ scoreFinal vaut : ');
+    console.log(this.scoreFinal);
+    for (let i = 0; i < this.maListeDeMotsATrouver.length; i++) {
+      if (this.maListeDeMotsATrouver[i].motTrouve === 'oui') {
+        this.scoreFinal++;
+      }
+    }
+    console.log('scoreFinal après boucle for vaut : ');
+    console.log(this.scoreFinal);
+    return this.scoreFinal;
+  }
 }

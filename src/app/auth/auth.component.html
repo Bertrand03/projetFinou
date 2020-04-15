@@ -1,3 +1,25 @@
-<h2>Cliquez pour vous connecter</h2>
-<button *ngIf="!isAuth" (click)="onConnexionUser()">Se connecter</button>
-<button *ngIf="isAuth" (click)="onDeconnexionUser()">Se déconnecter</button>
+<div class="container-fluid">
+  <button class="btn-success" (click)="onDebloqueConnexion()" *ngIf="!deblocageBouton">Se Connecter</button>
+  <button class="btn-danger" (click)="onDebloqueEnregistrement()" *ngIf="!deblocageBouton">S'enregistrer</button>
+</div>
+
+<div [formGroup]="loginForm" *ngIf="deblocageConnexion">
+  <h4>Cliquez pour vous connecter</h4>
+  <label>Pseudo</label>
+  <input type="text" formControlName="pseudo">
+  <label>Mot de passe</label>
+  <input type="text" formControlName="motDePasse">
+  <button *ngIf="!isAuth" (click)="onConnexionUser()">Se connecter</button>
+</div>
+<!--<p>{{messageAuth}}</p>-->
+
+<div [formGroup]="loginForm" class="container-fluid" *ngIf="deblocageEnregistrement">
+  <h4>Création de votre compte</h4>
+  <label>Pseudo</label>
+  <input type="text" formControlName="pseudoCreation">
+  <label>Mot de passe</label>
+  <input type="text" formControlName="motDePasseCreation">
+  <button (click)="onSaveUser()">Enregister User</button>
+  <p *ngIf="loginCree">Bienvenue {{pseudoUserCree}} !</p>
+</div>
+

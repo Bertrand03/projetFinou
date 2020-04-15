@@ -12,6 +12,10 @@ import {AuthService} from './services/auth.service';
 import {RouterModule, Routes} from '@angular/router';
 import { ListeMotsBisComponent } from './liste-mots-bis/liste-mots-bis.component';
 import { LoginFormBisComponent } from './login-form-bis/login-form-bis.component';
+import {HttpClientModule} from '@angular/common/http';
+import {NgxAudioPlayerModule} from 'ngx-audio-player';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AideComponent } from './aide/aide.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -28,14 +32,18 @@ const routes: Routes = [
     LoginFormComponent,
     AuthComponent,
     ListeMotsBisComponent,
-    LoginFormBisComponent
+    LoginFormBisComponent,
+    AideComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    HttpClientModule,
+    NgxAudioPlayerModule,
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [
     ListeMotsService,

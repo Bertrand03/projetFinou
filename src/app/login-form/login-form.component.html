@@ -8,7 +8,15 @@
   </div>
     <button class="btn btn-success"
             (click)="onValideUneReponse(indexOfArray)"
+            (click)="onSave()"
+            (click)="onCount()"
             [disabled]="motTrouve === 'oui'">Valider</button>
   <div>Nombre de tentatives : {{tentatives}}</div>
+  <div>Score global joueur : {{scoreJoueur}} / {{nbReponses}}</div>
+    <app-aide
+    [id]="id"
+    [motAnglais]="motAnglais"
+    [motFrancais]="motFrancais"
+    [motTrouve]="motTrouve"></app-aide>
   </li>
 </form>

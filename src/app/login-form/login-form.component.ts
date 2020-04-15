@@ -8,12 +8,6 @@ import {ListeMotsService} from '../services/liste-mots.service';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
-  reponseUser: string;
-  tentatives = 0;
-  tentativesBis = 0;
-  monScore = 0;
-
   @Input() id: number;
   @Input() motFrancais: string;
   @Input() motAnglais: string;
@@ -25,9 +19,12 @@ export class LoginFormComponent implements OnInit {
   @Input() indexOfArray: number;
   @Input() indexOfArrayBis: number;
 
+  reponseUser: string;
+  tentatives = 0;
   loginForm: FormGroup;
   maListeDeMots = [];
-  maListeDeMotsBis = [];
+  scoreJoueur = 0;
+  nbReponses = this.listeMotsService.maListeDeMotsATrouver.length;
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
@@ -38,17 +35,11 @@ export class LoginFormComponent implements OnInit {
     });
 
     this.maListeDeMots = this.listeMotsService.maListeDeMotsATrouver;
+    // this.scoreJoueur = this.listeMotsService.scoreGlobal;
   }
 
   onValideUneReponse(indexOfArray: number) {
     this.reponseUser = this.loginForm.value.username;
-    if (this.reponseUser === this.motAnglais) {
-      console.log('monScore vaut : ');
-      console.log(this.monScore);
-      this.monScore++;
-      this.maFonction();
-      return this.listeMotsService.switchOnOne(indexOfArray);
-    }
     console.log('Quizz 1')
     console.log('reponseUser vaut : ');
     console.log(this.reponseUser);
@@ -56,6 +47,10 @@ export class LoginFormComponent implements OnInit {
     console.log(this.motAnglais);
     console.log('indexOfArray vaut : ');
     console.log(this.indexOfArray);
+    if (this.reponseUser === this.motAnglais) {
+      this.maFonction();
+      return this.listeMotsService.switchOnOne(indexOfArray);
+    }
     console.log('on lance maFonction()');
     this.maFonction();
   }
@@ -63,15 +58,21 @@ export class LoginFormComponent implements OnInit {
   maFonction() {
       this.tentatives++;
       this.monOutput.emit(this.tentatives);
-      this.monOutput.emit(this.monScore);
+      this.monOutput.emit(this.scoreJoueur);
+      console.log('dans maFonction(), scoreJoueur vaut : ');
+      console.log(this.scoreJoueur);
   }
 
-  login() {
+  onSave() {
     this.reponseUser = this.loginForm.value.username;
-    console.log('reponseUser vaut : ');
-    console.log(this.reponseUser);
-    if (this.loginForm.value.username === this.motAnglais) {
-      // this.motTrouve = 'oui';
-    }
+    this.listeMotsService.saveWordsToServer();
   }
+
+  onCount() {
+    this.scoreJoueur = this.listeMotsService.getScoreGlobal();
+    console.log('passe dans onCount(login-form). scoreJoueur vaut : ');
+    console.log(this.scoreJoueur);
+    this.monOutput.emit(this.scoreJoueur);
+  }
+
 }
