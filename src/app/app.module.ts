@@ -17,10 +17,15 @@ import {NgxAudioPlayerModule} from 'ngx-audio-player';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AideComponent } from './aide/aide.component';
 import { ScoreComponent } from './score/score.component';
+import { ChoixQuizzComponent } from './choix-quizz/choix-quizz.component';
+import { QuizzComponent } from './quizz/quizz.component';
+import { TexteQuizzComponent } from './texte-quizz/texte-quizz.component';
+import { ContenuQuizzComponent } from './contenu-quizz/contenu-quizz.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
   {path: 'liste-mots', component: ListeMotsComponent},
+  {path: 'choix-quizz', component: ChoixQuizzComponent},
   {path: 'liste-mots-bis', component: ListeMotsBisComponent},
   {path: '', component: AuthComponent},
   {path: '**', component: AuthComponent}
@@ -35,7 +40,11 @@ const routes: Routes = [
     ListeMotsBisComponent,
     LoginFormBisComponent,
     AideComponent,
-    ScoreComponent
+    ScoreComponent,
+    ChoixQuizzComponent,
+    QuizzComponent,
+    TexteQuizzComponent,
+    ContenuQuizzComponent
   ],
   imports: [
     BrowserModule,

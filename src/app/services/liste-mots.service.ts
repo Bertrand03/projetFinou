@@ -267,4 +267,5 @@ export class ListeMotsService {
     this.motsNonTrouves.push(motAnglais);
     console.log('tab motsNonTrouves : ' + this.motsNonTrouves);
   }
+
 }

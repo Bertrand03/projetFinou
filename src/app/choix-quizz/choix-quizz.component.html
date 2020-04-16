@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let theme of tabChoixQuizz;">
+    <button (click)="onValiderChoix(theme.id)">Quizz : {{theme.nomQuizz}} - {{theme.id}}</button></li>
+</ul>
+
+<ul *ngIf="displayOK">
+  <li *ngFor="let ligne of quizzAAfficher">
+    {{ligne.id}} - {{ligne.motFrancais}} - {{ligne.motAnglais}}
+  </li>
+</ul>
