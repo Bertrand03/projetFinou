@@ -38,6 +38,7 @@ export class AideComponent implements OnInit {
   onCalculPenalite() {
     if (this.penaliteAide < 1) {
       this.penaliteAide++;
+      this.listeMotsService.getPenalitesTotal();
     }
   }
 }

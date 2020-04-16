@@ -4,7 +4,7 @@
                 'list-group-item-danger': motTrouve === 'non'}">
   <div class="form-group" >
     <label>Reponse</label>
-    <input type="text" class="form-control" formControlName="username">
+    <input type="text" class="form-control" formControlName="username" ng-model="event_detail.title" class="inputbox form-control">
   </div>
     <button class="btn btn-success"
             (click)="onValideUneReponse(indexOfArray)"

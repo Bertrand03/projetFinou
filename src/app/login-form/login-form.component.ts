@@ -34,6 +34,7 @@ export class LoginFormComponent implements OnInit {
   displayPlayer = false;
 
   audio: any;
+  premierCoup = 0;
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
@@ -62,6 +63,13 @@ export class LoginFormComponent implements OnInit {
     // console.log('indexOfArray vaut : ');
     // console.log(this.indexOfArray);
     if (this.reponseUser === this.motAnglais) {
+      if (this.tentatives < 1) {
+        console.log('tentatives vaut : ' + this.tentatives);
+        this.premierCoup++;
+        this.listeMotsService.getPremierCoup();
+      } else {
+          this.listeMotsService.ajouteMotsNonTrouves(this.motAnglais);
+      }
       // this.cptNbOui++
       // console.log('cptNbOui si juste vaut : ');
       // console.log(this.cptNbOui);
@@ -105,8 +113,6 @@ export class LoginFormComponent implements OnInit {
       this.tentatives++;
       this.monOutput.emit(this.tentatives);
       this.monOutput.emit(this.scoreJoueur);
-      // console.log('dans maFonction(), scoreJoueur vaut : ');
-      // console.log(this.scoreJoueur);
   }
 
   onSave() {

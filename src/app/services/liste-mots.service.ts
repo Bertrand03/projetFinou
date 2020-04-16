@@ -195,8 +195,12 @@ export class ListeMotsService {
     {id: 18, motAnglais: 'December', motFrancais: 'Decembre', motTrouve: 'non'}
   ];
 
+  motsNonTrouves = [];
+
   scoreGlobal = 12;
   scoreFinal = 0;
+  penalite = 0;
+  premierCoup = 0;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -246,5 +250,21 @@ export class ListeMotsService {
     // console.log('scoreFinal après boucle for vaut : ');
     // console.log(this.scoreFinal);
     return this.scoreFinal;
+  }
+
+  getPenalitesTotal() {
+    this.penalite++;
+    console.log('penialités Globales valent : ' + this.penalite);
+    return this.penalite;
+  }
+
+  getPremierCoup() {
+    this.premierCoup++;
+    return this.premierCoup;
+  }
+
+  ajouteMotsNonTrouves(motAnglais) {
+    this.motsNonTrouves.push(motAnglais);
+    console.log('tab motsNonTrouves : ' + this.motsNonTrouves);
   }
 }

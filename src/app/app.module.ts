@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxAudioPlayerModule} from 'ngx-audio-player';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AideComponent } from './aide/aide.component';
+import { ScoreComponent } from './score/score.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
     AuthComponent,
     ListeMotsBisComponent,
     LoginFormBisComponent,
-    AideComponent
+    AideComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,

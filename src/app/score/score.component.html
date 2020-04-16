@@ -1,0 +1,7 @@
+<p>Bouton aide utilisé pour : {{penalitesTotal()}} mots.</p>
+<p>Nombre de mots trouvés du premier coup : {{premierCoupTotal()}}.</p>
+<ul>
+  <li *ngFor="let mot of tableauMotsNonTrouves; let i = index">
+    Erreurs sur les mots : {{mot}}.
+  </li>
+</ul>
