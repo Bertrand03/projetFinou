@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <h2>Quizz 0</h2>
+    <h2>Quizz</h2>
     <div>
       <h4>Règles à respecter : </h4>
       <p>blablabla</p>
@@ -11,8 +11,8 @@
       <li [ngClass]="{'list-group-item' : true,
                 'list-group-item-success': motTrouve === 'oui',
                 'list-group-item-danger': motTrouve === 'non'}"
-          *ngFor="let ligne of quizzTemporel; let i = index;">
-        <h4>{{ligne.id}} - {{ligne.motFrancais}} .</h4>
+          *ngFor="let ligne of quizzAAfficher; let i = index;">
+        <h4>{{ligne.id}} - {{ligne.motFrancais}} - Mot trouve : {{ligne.motTrouve}} .</h4>
         <app-login-form
           [id]="ligne.id"
           [motFrancais]="ligne.motFrancais"

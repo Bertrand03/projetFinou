@@ -14,35 +14,23 @@ export class QuizzZeroComponent implements OnInit {
   @Input() motTrouve: string;
   @Input() indexOfArray: number;
   @Output() monOutput = new EventEmitter<number>();
-  @Input() quizzAAfficher: [];
+  @Input() quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+
 
   maListeDeMots = [];
-  titreDuQuizz: string = 'quizz-zero';
-
-  // quizzTemporel = [
-  //   {id: 0, motFrancais: 'Lundi', motAnglais: 'Monday', motTrouve: 'non'},
-  //   {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
-  //   {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
-  // ];
-
-  // quizzTemporel = [{}];
-  quizzTemporel: Array<object>;
+  // quizzAAfficher: Array<object>;
 
   constructor(private listeMotsService: ListeMotsService) {
   }
 
   ngOnInit() {
-    this.maListeDeMots = this.quizzAAfficher;
-    this.quizzTemporel = this.listeMotsService.quizzTemporelService;
   }
 
   verifDataQuizz() {
-    console.log('maListeDeMots : ' + this.maListeDeMots);
-    console.log('quizzAAfficher : ' + this.quizzAAfficher);
-    console.log('quizzTemporel : ');
-    console.log(this.quizzTemporel);
-    console.log('id : ' + this.id);
-  }
+    // console.log('maListeDeMots : ' + this.maListeDeMots);
+    // console.log('VerifDataQuizz, quizzAAfficher : ');
+    // console.log(this.quizzAAfficher);
+    }
 
 }
 

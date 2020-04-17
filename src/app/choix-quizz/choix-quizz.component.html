@@ -4,11 +4,8 @@
 </ul>
 
 
-<app-quizz-zero *ngIf="indiceChoix === 0"></app-quizz-zero>
+<app-quizz-zero *ngIf="indiceChoix === 0" [quizzAAfficher]="quizzAAfficher"></app-quizz-zero>
+<app-quizz-zero *ngIf="indiceChoix === 1" [quizzAAfficher]="quizzAAfficher"></app-quizz-zero>
+<app-quizz-zero *ngIf="indiceChoix === 2" [quizzAAfficher]="quizzAAfficher"></app-quizz-zero>
 <app-liste-mots *ngIf="indiceChoix === 3"></app-liste-mots>
-<!--<app-quizz-zero *ngIf="indiceChoix === 0"-->
-<!--[id]="ligne.id"-->
-<!--[motAnglais]="ligne.motAnglais"-->
-<!--[motFrancais]="ligne.motFrancais"-->
-<!--[motTrouve]="ligne.motTrouve"-->
-<!--[quizzAAfficher]="quizzAAfficher"></app-quizz-zero>-->
+

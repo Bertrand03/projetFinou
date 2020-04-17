@@ -34,15 +34,20 @@ export class ChoixQuizzComponent implements OnInit {
     {id: 2, motFrancais: 'Tete', motAnglais: 'Head', motTrouve: 'non'}
   ];
 
-  quizzAAfficher = [{}];
+  // quizzAAfficher = [{}];
 
   indiceChoix = 0;
   displayOK: boolean;
+  quizzAAfficher = this.listeMotsService.quizzAAfficherService;
+
 
   constructor(private activatedRoute: ActivatedRoute, private listeMotsService: ListeMotsService) {
   }
 
   ngOnInit() {
+    this.quizzTemporel = this.listeMotsService.quizzTemporelService;
+    this.quizzAnimaux = this.listeMotsService.quizzAnimauxService;
+    this.quizzCorpsHumain = this.listeMotsService.quizzCorpsHumainService;
   }
 
   onValiderChoix(id) {
@@ -59,8 +64,8 @@ export class ChoixQuizzComponent implements OnInit {
     if (this.indiceChoix === 2) {
       this.quizzAAfficher = this.quizzCorpsHumain;
     }
-
-    console.log(this.quizzAAfficher);
+    // console.log('quizzAAfficher');
+    // console.log(this.quizzAAfficher);
     this.displayOK = true;
     this.donneNomDuQuizz(this.indiceChoix);
   }

@@ -4,7 +4,8 @@
                 'list-group-item-danger': motTrouve === 'non'}">
   <div class="form-group" >
     <label>Reponse</label>
-    <input type="text" class="form-control" formControlName="username" formControlName="reponseQuizzZeroForm">
+    <input *ngIf="choixDuQuizz <= 2" type="text" class="form-control" formControlName="reponseQuizzZeroForm">
+    <input *ngIf="choixDuQuizz === 3"type="text" class="form-control" formControlName="username">
   </div>
     <button class="btn btn-success"
             (click)="onValideUneReponse(indexOfArray)"
@@ -15,7 +16,7 @@
   <!--<div class="row">-->
     <div>
       <p>Nombre de tentatives : {{tentatives}} - Nombre de mots trouvés : {{scoreJoueur}} / {{nbReponses}}</p>
-      <p>Titre du quizz : {{titreDuQuizz}}</p>
+      <!--<p>Titre du quizz : {{titreDuQuizz}}</p>-->
      </div>
   <!--</div>-->
     <app-aide

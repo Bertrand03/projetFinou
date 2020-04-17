@@ -200,21 +200,23 @@ export class ListeMotsService {
     {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
     {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
   ];
-
-  quizzTest0 = [
-    {id: 0, motFrancais: 'test', motAnglais: 'test', motTrouve: 'nonTest'},
-    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
+  quizzAnimauxService = [
+    {id: 0, motFrancais: 'Chat', motAnglais: 'Cat', motTrouve: 'non'},
+    {id: 1, motFrancais: 'Chien', motAnglais: 'Dog', motTrouve: 'non'},
+    {id: 2, motFrancais: 'Cheval', motAnglais: 'Horse', motTrouve: 'non'},
+    {id: 3, motFrancais: 'Oiseau', motAnglais: 'Bird', motTrouve: 'non'},
+    {id: 4, motFrancais: 'Renard', motAnglais: 'Fox', motTrouve: 'non'}
   ];
 
-  quizzTest1 = [
-    {id: 0, motFrancais: 'test1', motAnglais: 'test1', motTrouve: 'nonTest1'},
-    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
+  quizzCorpsHumainService = [
+    {id: 0, motFrancais: 'Main', motAnglais: 'Hand', motTrouve: 'non'},
+    {id: 1, motFrancais: 'Doigt', motAnglais: 'Finger', motTrouve: 'non'},
+    {id: 2, motFrancais: 'Tete', motAnglais: 'Head', motTrouve: 'non'},
+    {id: 3, motFrancais: 'Bras', motAnglais: 'Arm', motTrouve: 'non'},
+    {id: 4, motFrancais: 'Jambe', motAnglais: 'Leg', motTrouve: 'non'}
   ];
 
-  monTableauAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
-  // monTableauAAfficher = this.quizzTest;
+  quizzAAfficherService: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
 
   motsNonTrouves = [];
 
@@ -235,20 +237,26 @@ export class ListeMotsService {
   }
 
   switchOnOne(indexOfArray: number) {
-    // if (this.choixDuQuizz === 0) {
-    //   this.quizzTemporelService[indexOfArray].motTrouve = 'oui';
-    // } else {
-    //   this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
-    // }
-    // console.log('Mon tableauTest vaut : ');
-    // console.log(this.monTableauAAfficher);
+    if (this.choixDuQuizz === 0) {
+      this.quizzTemporelService[indexOfArray].motTrouve = 'oui';
+      // this.quizzAAfficherService = this.quizzTemporelService;
+    }
+    if (this.choixDuQuizz === 1) {
+      this.quizzAnimauxService[indexOfArray].motTrouve = 'oui';
+      // this.quizzAAfficherService = this.quizzAnimauxService;
 
-      this.monTableauAAfficher[indexOfArray].motTrouve = 'oui';
-      console.log('Mon tableauTest vaut : ');
-      console.log(this.monTableauAAfficher);
+    }
+    if (this.choixDuQuizz === 2) {
+      this.quizzCorpsHumainService[indexOfArray].motTrouve = 'oui';
+      this.quizzAAfficherService = this.quizzCorpsHumainService;
 
-
+    }
+    if (this.choixDuQuizz === 3) {
+      this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
+      this.quizzAAfficherService = this.maListeDeMotsATrouver;
+    }
   }
+
   switchOnOneBis(indexOfArrayBis: number) {
     console.log('appel à switchOnOneBis / Service');
     this.maListeDeMotsATrouverBis[indexOfArrayBis].motTrouve = 'oui';
@@ -302,11 +310,17 @@ export class ListeMotsService {
   getNumeroDuQuizz(indiceChoix) {
     console.log('indiceChoix Quizz-zero vaut : ' + indiceChoix);
     this.choixDuQuizz = indiceChoix;
-    if (this.choixDuQuizz === 1) {
-      this.monTableauAAfficher = this.quizzTest0;
-    }
     if (this.choixDuQuizz === 0) {
-      this.monTableauAAfficher = this.quizzTest1;
+      this.quizzAAfficherService = this.quizzTemporelService;
+    }
+    if (this.choixDuQuizz === 1) {
+      this.quizzAAfficherService = this.quizzAnimauxService;
+    }
+    if (this.choixDuQuizz === 2) {
+      this.quizzAAfficherService = this.quizzCorpsHumainService;
+    }
+    if (this.choixDuQuizz === 2) {
+      this.quizzAAfficherService = this.maListeDeMotsATrouver;
     }
     return indiceChoix;
   }

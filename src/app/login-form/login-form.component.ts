@@ -23,7 +23,6 @@ export class LoginFormComponent implements OnInit {
 
 
   monTitreQuizz = this.titreDuQuizz;
-  reponseUser: string;
   tentatives = 0;
   loginForm: FormGroup;
   maListeDeMots = [];
@@ -39,7 +38,9 @@ export class LoginFormComponent implements OnInit {
 
   audio: any;
   premierCoup = 0;
+  reponseUser: string;
   reponseQuizzZero: string;
+  choixDuQuizz = this.listeMotsService.choixDuQuizz;
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
@@ -51,7 +52,6 @@ export class LoginFormComponent implements OnInit {
     });
 
     this.maListeDeMots = this.listeMotsService.maListeDeMotsATrouver;
-    // this.scoreJoueur = this.listeMotsService.scoreGlobal;
 
     this.audio = new Audio();
     this.audio.src = '../../assets/audio1/applause.mp3';
@@ -61,12 +61,10 @@ export class LoginFormComponent implements OnInit {
 
   onValideUneReponse(indexOfArray: number) {
     console.log('choix du quizz : ' + this.listeMotsService.choixDuQuizz);
-    if (this.listeMotsService.choixDuQuizz === 0) {
+    if (this.listeMotsService.choixDuQuizz <= 2) {
       this.reponseQuizzZero = this.loginForm.value.reponseQuizzZeroForm;
       console.log('reponseQuizzZero vaut : ' + this.reponseQuizzZero);
     }
-    // console.log('monTitreQuizz : ' + this.monTitreQuizz);
-    // console.log('quizzTemporel : ' + this.quizzTemporel);
     this.reponseUser = this.loginForm.value.username;
     // console.log('Quizz 1')
     console.log('reponseUser vaut : ');
@@ -87,38 +85,57 @@ export class LoginFormComponent implements OnInit {
       // console.log('cptNbOui si juste vaut : ');
       // console.log(this.cptNbOui);
       this.listeMotsService.switchOnOne(indexOfArray);
+      console.log('motTrouve vaut : ');
+      console.log(this.motTrouve);
       this.maFonction();
-      this.combienDeOui();
+      this.combienDeOui2();
       return null;
     }
     // console.log('on lance maFonction()');
     this.maFonction();
-    this.nomDuQuizz();
     // console.log('cptNbOui vaut : ');
     // console.log(this.cptNbOui);
   }
 
-  nomDuQuizz() {
+  // combienDeOui() {
+  //   console.log('lance combienDeOui()');
+  //   this.cptNbOui = 0;
+  //   for (let i = 0; i < 5; i++) {
+  //     // console.log(this.listeMotsService.maListeDeMotsATrouver[i].motAnglais + ' vaut : ' +
+  //     //   this.listeMotsService.maListeDeMotsATrouver[i].motTrouve);
+  //     if (this.maListeDeMots[i].motTrouve === 'oui') {
+  //       this.cptNbOui++;
+  //       console.log('cptNbOui vaut : ' + this.cptNbOui);
+  //       console.log('Taille du tableau : ' + this.listeMotsService.maListeDeMotsATrouver.length);
+  //     }
+  //   }
+  //   if (this.cptNbOui === this.listeMotsService.maListeDeMotsATrouver.length) {
+  //     console.log('Quizz terminé, lance audio');
+  //     this.playAudio();
+  //   }
+  // }
 
-  }
+  // VERSION 2 combienDeOui2()
 
-  combienDeOui() {
-    console.log('lance combienDeOui()');
+  combienDeOui2() {
+    console.log('lance combienDeOui2()');
     this.cptNbOui = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < this.listeMotsService.quizzAAfficherService.length; i++) {
       // console.log(this.listeMotsService.maListeDeMotsATrouver[i].motAnglais + ' vaut : ' +
       //   this.listeMotsService.maListeDeMotsATrouver[i].motTrouve);
-      if (this.maListeDeMots[i].motTrouve === 'oui') {
+      if (this.listeMotsService.quizzAAfficherService[i].motTrouve === 'oui') {
         this.cptNbOui++;
         console.log('cptNbOui vaut : ' + this.cptNbOui);
-        console.log('Taille du tableau : ' + this.listeMotsService.maListeDeMotsATrouver.length);
+        console.log('Taille du tableau quizzAAfficherService : ' + this.listeMotsService.quizzAAfficherService.length);
       }
     }
-    if (this.cptNbOui === this.listeMotsService.maListeDeMotsATrouver.length) {
+    if (this.cptNbOui === this.listeMotsService.quizzAAfficherService.length) {
       console.log('Quizz terminé, lance audio');
       this.playAudio();
     }
   }
+
+
 
   playAudio() {
     // let audio = new Audio('assets/audio1/applause.mp3');
