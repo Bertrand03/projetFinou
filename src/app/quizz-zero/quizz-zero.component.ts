@@ -15,6 +15,7 @@ export class QuizzZeroComponent implements OnInit {
   @Input() indexOfArray: number;
   @Output() monOutput = new EventEmitter<number>();
   @Input() quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+  @Input() displayOk: boolean;
 
 
   maListeDeMots = [];
@@ -25,12 +26,5 @@ export class QuizzZeroComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  verifDataQuizz() {
-    // console.log('maListeDeMots : ' + this.maListeDeMots);
-    // console.log('VerifDataQuizz, quizzAAfficher : ');
-    // console.log(this.quizzAAfficher);
-    }
-
 }
 

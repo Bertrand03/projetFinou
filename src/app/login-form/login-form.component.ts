@@ -20,6 +20,7 @@ export class LoginFormComponent implements OnInit {
   @Input() indexOfArray: number;
   @Input() indexOfArrayBis: number;
   @Input() titreDuQuizz: string;
+  @Input() displayOK: boolean;
 
 
   monTitreQuizz = this.titreDuQuizz;

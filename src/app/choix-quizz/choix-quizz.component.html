@@ -1,11 +1,11 @@
 <ul>
   <li *ngFor="let theme of tabChoixQuizz;">
-    <button (click)="onValiderChoix(theme.id)">Quizz : {{theme.nomQuizz}} - {{theme.id}}</button></li>
+    <button (click)="onValiderChoix(theme.id)">Quizz : {{theme.nomQuizz}}</button></li>
 </ul>
 
 
-<app-quizz-zero *ngIf="indiceChoix === 0" [quizzAAfficher]="quizzAAfficher"></app-quizz-zero>
-<app-quizz-zero *ngIf="indiceChoix === 1" [quizzAAfficher]="quizzAAfficher"></app-quizz-zero>
-<app-quizz-zero *ngIf="indiceChoix === 2" [quizzAAfficher]="quizzAAfficher"></app-quizz-zero>
+<app-quizz-zero *ngIf="indiceChoix === 0" [quizzAAfficher]="quizzAAfficher" [displayOk]="displayOK"></app-quizz-zero>
+<app-quizz-zero *ngIf="indiceChoix === 1" [quizzAAfficher]="quizzAAfficher" [displayOk]="displayOK"></app-quizz-zero>
+<app-quizz-zero *ngIf="indiceChoix === 2" [quizzAAfficher]="quizzAAfficher" [displayOk]="displayOK"></app-quizz-zero>
 <app-liste-mots *ngIf="indiceChoix === 3"></app-liste-mots>
 

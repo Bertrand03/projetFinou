@@ -16,30 +16,13 @@ export class ChoixQuizzComponent implements OnInit {
     {id: 3, nomQuizz: 'Trouve le mot en Anglais'}
   ];
 
-  quizzTemporel = [
-    {id: 0, motFrancais: 'Lundi', motAnglais: 'Monday', motTrouve: 'non'},
-    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
-  ];
-
-  quizzAnimaux = [
-    {id: 0, motFrancais: 'Chat', motAnglais: 'Cat', motTrouve: 'non'},
-    {id: 1, motFrancais: 'Chien', motAnglais: 'Dog', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Cheval', motAnglais: 'Horse', motTrouve: 'non'}
-  ];
-
-  quizzCorpsHumain = [
-    {id: 0, motFrancais: 'Main', motAnglais: 'Hand', motTrouve: 'non'},
-    {id: 1, motFrancais: 'Doigt', motAnglais: 'Finger', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Tete', motAnglais: 'Head', motTrouve: 'non'}
-  ];
-
-  // quizzAAfficher = [{}];
+  quizzTemporel: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+  quizzAnimaux: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+  quizzCorpsHumain: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+  quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
 
   indiceChoix = 0;
   displayOK: boolean;
-  quizzAAfficher = this.listeMotsService.quizzAAfficherService;
-
 
   constructor(private activatedRoute: ActivatedRoute, private listeMotsService: ListeMotsService) {
   }
@@ -64,8 +47,6 @@ export class ChoixQuizzComponent implements OnInit {
     if (this.indiceChoix === 2) {
       this.quizzAAfficher = this.quizzCorpsHumain;
     }
-    // console.log('quizzAAfficher');
-    // console.log(this.quizzAAfficher);
     this.displayOK = true;
     this.donneNomDuQuizz(this.indiceChoix);
   }

@@ -225,6 +225,7 @@ export class ListeMotsService {
   penalite = 0;
   premierCoup = 0;
   choixDuQuizz = 0;
+  montreMoiBlocAide: boolean;
 
   constructor(private httpClient: HttpClient) {
   }

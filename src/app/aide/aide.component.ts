@@ -12,6 +12,7 @@ export class AideComponent implements OnInit {
   @Input () motAnglais: string;
   @Input () motFrancais: string;
   @Input () motTrouve: string;
+  @Input () displayOk: boolean;
 
   maLettre: string;
   monMotAide = ' ';

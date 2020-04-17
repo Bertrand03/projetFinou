@@ -15,6 +15,7 @@ export class ListeMotsComponent implements OnInit {
   @Input() indexOfArray: number;
   @Output() monOutput = new EventEmitter<number>();
 
+
   maListeDeMots = [];
   scoreJoueurBis = 0;
 
