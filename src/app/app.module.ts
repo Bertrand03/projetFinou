@@ -21,6 +21,7 @@ import { ChoixQuizzComponent } from './choix-quizz/choix-quizz.component';
 import { QuizzComponent } from './quizz/quizz.component';
 import { TexteQuizzComponent } from './texte-quizz/texte-quizz.component';
 import { ContenuQuizzComponent } from './contenu-quizz/contenu-quizz.component';
+import { QuizzZeroComponent } from './quizz-zero/quizz-zero.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -44,7 +45,8 @@ const routes: Routes = [
     ChoixQuizzComponent,
     QuizzComponent,
     TexteQuizzComponent,
-    ContenuQuizzComponent
+    ContenuQuizzComponent,
+    QuizzZeroComponent
   ],
   imports: [
     BrowserModule,

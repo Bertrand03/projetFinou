@@ -12,13 +12,17 @@ export class LoginFormComponent implements OnInit {
   @Input() motFrancais: string;
   @Input() motAnglais: string;
   @Input() maListeDeMotsATrouver: Array<object>;
+  @Input() quizzTemporel: Array<object>;
   @Input() motTrouve: string;
   @Input() data: Array<object>;
   @Output() monOutput = new EventEmitter<number>();
   @Output() exportStringToParent = new EventEmitter<string>();
   @Input() indexOfArray: number;
   @Input() indexOfArrayBis: number;
+  @Input() titreDuQuizz: string;
 
+
+  monTitreQuizz = this.titreDuQuizz;
   reponseUser: string;
   tentatives = 0;
   loginForm: FormGroup;
@@ -35,13 +39,15 @@ export class LoginFormComponent implements OnInit {
 
   audio: any;
   premierCoup = 0;
+  reponseQuizzZero: string;
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      username: []
+      username: [],
+      reponseQuizzZeroForm: []
     });
 
     this.maListeDeMots = this.listeMotsService.maListeDeMotsATrouver;
@@ -54,15 +60,22 @@ export class LoginFormComponent implements OnInit {
   }
 
   onValideUneReponse(indexOfArray: number) {
+    console.log('choix du quizz : ' + this.listeMotsService.choixDuQuizz);
+    if (this.listeMotsService.choixDuQuizz === 0) {
+      this.reponseQuizzZero = this.loginForm.value.reponseQuizzZeroForm;
+      console.log('reponseQuizzZero vaut : ' + this.reponseQuizzZero);
+    }
+    // console.log('monTitreQuizz : ' + this.monTitreQuizz);
+    // console.log('quizzTemporel : ' + this.quizzTemporel);
     this.reponseUser = this.loginForm.value.username;
     // console.log('Quizz 1')
-    // console.log('reponseUser vaut : ');
-    // console.log(this.reponseUser);
-    // console.log('motAnglais vaut : ');
-    // console.log(this.motAnglais);
+    console.log('reponseUser vaut : ');
+    console.log(this.reponseUser);
+    console.log('motAnglais vaut : ');
+    console.log(this.motAnglais);
     // console.log('indexOfArray vaut : ');
     // console.log(this.indexOfArray);
-    if (this.reponseUser === this.motAnglais) {
+    if ((this.reponseUser === this.motAnglais) || (this.reponseQuizzZero === this.motAnglais)) {
       if (this.tentatives < 1) {
         console.log('tentatives vaut : ' + this.tentatives);
         this.premierCoup++;
@@ -80,8 +93,13 @@ export class LoginFormComponent implements OnInit {
     }
     // console.log('on lance maFonction()');
     this.maFonction();
+    this.nomDuQuizz();
     // console.log('cptNbOui vaut : ');
     // console.log(this.cptNbOui);
+  }
+
+  nomDuQuizz() {
+
   }
 
   combienDeOui() {

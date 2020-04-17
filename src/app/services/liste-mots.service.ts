@@ -195,12 +195,34 @@ export class ListeMotsService {
     {id: 18, motAnglais: 'December', motFrancais: 'Decembre', motTrouve: 'non'}
   ];
 
+  quizzTemporelService = [
+    {id: 0, motFrancais: 'Lundi', motAnglais: 'Monday', motTrouve: 'non'},
+    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
+    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
+  ];
+
+  quizzTest0 = [
+    {id: 0, motFrancais: 'test', motAnglais: 'test', motTrouve: 'nonTest'},
+    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
+    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
+  ];
+
+  quizzTest1 = [
+    {id: 0, motFrancais: 'test1', motAnglais: 'test1', motTrouve: 'nonTest1'},
+    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
+    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
+  ];
+
+  monTableauAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+  // monTableauAAfficher = this.quizzTest;
+
   motsNonTrouves = [];
 
   scoreGlobal = 12;
   scoreFinal = 0;
   penalite = 0;
   premierCoup = 0;
+  choixDuQuizz = 0;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -213,10 +235,19 @@ export class ListeMotsService {
   }
 
   switchOnOne(indexOfArray: number) {
-    // console.log('appel à switchOnOne / Service');
-    this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
-    // console.log('motTrouve vaut : ');
-    // console.log(this.maListeDeMotsATrouver[indexOfArray].motTrouve);
+    // if (this.choixDuQuizz === 0) {
+    //   this.quizzTemporelService[indexOfArray].motTrouve = 'oui';
+    // } else {
+    //   this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
+    // }
+    // console.log('Mon tableauTest vaut : ');
+    // console.log(this.monTableauAAfficher);
+
+      this.monTableauAAfficher[indexOfArray].motTrouve = 'oui';
+      console.log('Mon tableauTest vaut : ');
+      console.log(this.monTableauAAfficher);
+
+
   }
   switchOnOneBis(indexOfArrayBis: number) {
     console.log('appel à switchOnOneBis / Service');
@@ -254,7 +285,7 @@ export class ListeMotsService {
 
   getPenalitesTotal() {
     this.penalite++;
-    console.log('penialités Globales valent : ' + this.penalite);
+    console.log('penalités Globales valent : ' + this.penalite);
     return this.penalite;
   }
 
@@ -266,6 +297,18 @@ export class ListeMotsService {
   ajouteMotsNonTrouves(motAnglais) {
     this.motsNonTrouves.push(motAnglais);
     console.log('tab motsNonTrouves : ' + this.motsNonTrouves);
+  }
+
+  getNumeroDuQuizz(indiceChoix) {
+    console.log('indiceChoix Quizz-zero vaut : ' + indiceChoix);
+    this.choixDuQuizz = indiceChoix;
+    if (this.choixDuQuizz === 1) {
+      this.monTableauAAfficher = this.quizzTest0;
+    }
+    if (this.choixDuQuizz === 0) {
+      this.monTableauAAfficher = this.quizzTest1;
+    }
+    return indiceChoix;
   }
 
 }

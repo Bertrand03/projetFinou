@@ -3,8 +3,12 @@
     <button (click)="onValiderChoix(theme.id)">Quizz : {{theme.nomQuizz}} - {{theme.id}}</button></li>
 </ul>
 
-<ul *ngIf="displayOK">
-  <li *ngFor="let ligne of quizzAAfficher">
-    {{ligne.id}} - {{ligne.motFrancais}} - {{ligne.motAnglais}}
-  </li>
-</ul>
+
+<app-quizz-zero *ngIf="indiceChoix === 0"></app-quizz-zero>
+<app-liste-mots *ngIf="indiceChoix === 3"></app-liste-mots>
+<!--<app-quizz-zero *ngIf="indiceChoix === 0"-->
+<!--[id]="ligne.id"-->
+<!--[motAnglais]="ligne.motAnglais"-->
+<!--[motFrancais]="ligne.motFrancais"-->
+<!--[motTrouve]="ligne.motTrouve"-->
+<!--[quizzAAfficher]="quizzAAfficher"></app-quizz-zero>-->
