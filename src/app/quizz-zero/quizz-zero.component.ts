@@ -17,10 +17,6 @@ export class QuizzZeroComponent implements OnInit {
   @Input() quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
   @Input() displayOk: boolean;
 
-
-  maListeDeMots = [];
-  // quizzAAfficher: Array<object>;
-
   constructor(private listeMotsService: ListeMotsService) {
   }
 

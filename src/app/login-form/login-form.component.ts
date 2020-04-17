@@ -62,7 +62,7 @@ export class LoginFormComponent implements OnInit {
 
   onValideUneReponse(indexOfArray: number) {
     console.log('choix du quizz : ' + this.listeMotsService.choixDuQuizz);
-    if (this.listeMotsService.choixDuQuizz <= 2) {
+    if (this.listeMotsService.choixDuQuizz <= 3) {
       this.reponseQuizzZero = this.loginForm.value.reponseQuizzZeroForm;
       console.log('reponseQuizzZero vaut : ' + this.reponseQuizzZero);
     }

@@ -173,7 +173,30 @@ export class ListeMotsService {
     {id: 80, motFrancais: 'Actuellement', motAnglais: 'Currently', motTrouve: 'non'}
   ];
 
-  temporel = [
+  quizzDiversService = [
+    {id: 0, motAnglais: 'To crouch', motFrancais: 'S\'accroupir', motTrouve: 'non'},
+    {id: 1, motAnglais: 'Because of', motFrancais: 'A cause de', motTrouve: 'non'},
+    {id: 2, motAnglais: 'Short cut', motFrancais: 'Raccourci', motTrouve: 'non'},
+    {id: 3, motAnglais: 'Take a shower', motFrancais: 'Prendre une douche', motTrouve: 'non'},
+    {id: 4, motAnglais: 'Thanks to', motFrancais: 'Grace a', motTrouve: 'non'},
+    {id: 5, motAnglais: 'To fix', motFrancais: 'Reparer', motTrouve: 'non'},
+    {id: 6, motAnglais: 'To forget', motFrancais: 'Oublier', motTrouve: 'non'},
+    {id: 7, motAnglais: 'To avoid', motFrancais: 'Eviter', motTrouve: 'non'},
+    {id: 8, motAnglais: 'Seat', motFrancais: 'Siege', motTrouve: 'non'},
+    {id: 9, motAnglais: 'Helmet', motFrancais: 'Casque', motTrouve: 'non'},
+    {id: 10, motAnglais: 'Daily meeting', motFrancais: 'Reunion quotidienne', motTrouve: 'non'},
+    {id: 11, motAnglais: 'Weekly newspaper', motFrancais: 'Journal hebdomadaire', motTrouve: 'non'},
+    {id: 12, motAnglais: 'Almost', motFrancais: 'Presque', motTrouve: 'non'},
+    {id: 13, motAnglais: 'Behind', motFrancais: 'Derriere', motTrouve: 'non'},
+    {id: 14, motAnglais: 'Above', motFrancais: 'Au dessus', motTrouve: 'non'},
+    {id: 15, motAnglais: 'To hide', motFrancais: 'Cacher', motTrouve: 'non'},
+    {id: 16, motAnglais: 'Read the article below', motFrancais: 'Lire l\article en dessous', motTrouve: 'non'},
+    {id: 17, motAnglais: 'To provide', motFrancais: 'Fournir', motTrouve: 'non'},
+    {id: 18, motAnglais: 'To get', motFrancais: 'Obtenir', motTrouve: 'non'},
+    {id: 19, motAnglais: 'Garden', motFrancais: 'Jardin', motTrouve: 'non'}
+  ];
+
+  quizzTemporelService = [
     {id: 0, motAnglais: 'Monday', motFrancais: 'Lundi', motTrouve: 'non'},
     {id: 1, motAnglais: 'Tuesday', motFrancais: 'Mardi', motTrouve: 'non'},
     {id: 2, motAnglais: 'Wednesday', motFrancais: 'Mercredi', motTrouve: 'non'},
@@ -194,18 +217,17 @@ export class ListeMotsService {
     {id: 17, motAnglais: 'November', motFrancais: 'Novembre', motTrouve: 'non'},
     {id: 18, motAnglais: 'December', motFrancais: 'Decembre', motTrouve: 'non'}
   ];
-
-  quizzTemporelService = [
-    {id: 0, motFrancais: 'Lundi', motAnglais: 'Monday', motTrouve: 'non'},
-    {id: 1, motFrancais: 'Janvier', motAnglais: 'Jannuary', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Minuit', motAnglais: 'Midnight', motTrouve: 'non'}
-  ];
   quizzAnimauxService = [
-    {id: 0, motFrancais: 'Chat', motAnglais: 'Cat', motTrouve: 'non'},
-    {id: 1, motFrancais: 'Chien', motAnglais: 'Dog', motTrouve: 'non'},
-    {id: 2, motFrancais: 'Cheval', motAnglais: 'Horse', motTrouve: 'non'},
+    {id: 0, motFrancais: 'Cochon', motAnglais: 'Pig', motTrouve: 'non'},
+    {id: 1, motFrancais: 'Loup', motAnglais: 'Wolf', motTrouve: 'non'},
+    {id: 2, motFrancais: 'Escargot', motAnglais: 'Snail', motTrouve: 'non'},
     {id: 3, motFrancais: 'Oiseau', motAnglais: 'Bird', motTrouve: 'non'},
-    {id: 4, motFrancais: 'Renard', motAnglais: 'Fox', motTrouve: 'non'}
+    {id: 4, motFrancais: 'Renard', motAnglais: 'Fox', motTrouve: 'non'},
+    {id: 5, motFrancais: 'Canard', motAnglais: 'Duck', motTrouve: 'non'},
+    {id: 6, motFrancais: 'Mouton', motAnglais: 'Sheep', motTrouve: 'non'},
+    {id: 7, motFrancais: 'Mouche', motAnglais: 'Fly', motTrouve: 'non'},
+    {id: 8, motFrancais: 'Singe', motAnglais: 'Monkey', motTrouve: 'non'},
+    {id: 9, motFrancais: 'Abeille', motAnglais: 'Bee', motTrouve: 'non'}
   ];
 
   quizzCorpsHumainService = [
@@ -213,7 +235,12 @@ export class ListeMotsService {
     {id: 1, motFrancais: 'Doigt', motAnglais: 'Finger', motTrouve: 'non'},
     {id: 2, motFrancais: 'Tete', motAnglais: 'Head', motTrouve: 'non'},
     {id: 3, motFrancais: 'Bras', motAnglais: 'Arm', motTrouve: 'non'},
-    {id: 4, motFrancais: 'Jambe', motAnglais: 'Leg', motTrouve: 'non'}
+    {id: 4, motFrancais: 'Jambe', motAnglais: 'Leg', motTrouve: 'non'},
+    {id: 5, motFrancais: 'Coude', motAnglais: 'Elbow', motTrouve: 'non'},
+    {id: 6, motFrancais: 'Oreille', motAnglais: 'Ear', motTrouve: 'non'},
+    {id: 7, motFrancais: 'Jambe', motAnglais: 'Leg', motTrouve: 'non'},
+    {id: 8, motFrancais: 'Cou', motAnglais: 'Neck', motTrouve: 'non'},
+    {id: 9, motFrancais: 'Orteil', motAnglais: 'Toe', motTrouve: 'non'}
   ];
 
   quizzAAfficherService: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
@@ -225,7 +252,6 @@ export class ListeMotsService {
   penalite = 0;
   premierCoup = 0;
   choixDuQuizz = 0;
-  montreMoiBlocAide: boolean;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -253,6 +279,11 @@ export class ListeMotsService {
 
     }
     if (this.choixDuQuizz === 3) {
+      this.quizzDiversService[indexOfArray].motTrouve = 'oui';
+      this.quizzAAfficherService = this.quizzDiversService;
+    }
+
+    if (this.choixDuQuizz === 4) {
       this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
       this.quizzAAfficherService = this.maListeDeMotsATrouver;
     }
@@ -320,7 +351,10 @@ export class ListeMotsService {
     if (this.choixDuQuizz === 2) {
       this.quizzAAfficherService = this.quizzCorpsHumainService;
     }
-    if (this.choixDuQuizz === 2) {
+    if (this.choixDuQuizz === 3) {
+      this.quizzAAfficherService = this.quizzDiversService;
+    }
+    if (this.choixDuQuizz === 4) {
       this.quizzAAfficherService = this.maListeDeMotsATrouver;
     }
     return indiceChoix;

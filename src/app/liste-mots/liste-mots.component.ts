@@ -14,6 +14,8 @@ export class ListeMotsComponent implements OnInit {
   @Input() motTrouve: string;
   @Input() indexOfArray: number;
   @Output() monOutput = new EventEmitter<number>();
+  @Input() quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+
 
 
   maListeDeMots = [];

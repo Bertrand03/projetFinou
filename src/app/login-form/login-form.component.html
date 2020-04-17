@@ -4,8 +4,8 @@
                 'list-group-item-danger': motTrouve === 'non'}">
   <div class="form-group" >
     <label>Reponse</label>
-    <input *ngIf="choixDuQuizz <= 2" type="text" class="form-control" formControlName="reponseQuizzZeroForm">
-    <input *ngIf="choixDuQuizz === 3"type="text" class="form-control" formControlName="username">
+    <input *ngIf="choixDuQuizz <= 3" type="text" class="form-control" formControlName="reponseQuizzZeroForm">
+    <input *ngIf="choixDuQuizz === 4"type="text" class="form-control" formControlName="username">
   </div>
     <button class="btn btn-success"
             (click)="onValideUneReponse(indexOfArray)"
