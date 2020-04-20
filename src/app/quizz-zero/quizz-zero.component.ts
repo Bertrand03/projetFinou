@@ -13,6 +13,7 @@ export class QuizzZeroComponent implements OnInit {
   @Input() motAnglais: string;
   @Input() motTrouve: string;
   @Input() motAudio: string;
+  @Input() motAudioMarley: string;
   @Input() indexOfArray: number;
   @Output() monOutput = new EventEmitter<number>();
   @Input() quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;

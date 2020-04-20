@@ -15,6 +15,7 @@ export class LoginFormComponent implements OnInit {
   @Input() quizzTemporel: Array<object>;
   @Input() motTrouve: string;
   @Input() motAudio: string;
+  @Input() motAudioMarley: string;
   @Input() data: Array<object>;
   @Output() monOutput = new EventEmitter<number>();
   @Output() exportStringToParent = new EventEmitter<string>();
@@ -69,7 +70,7 @@ export class LoginFormComponent implements OnInit {
 
   onValideUneReponse(indexOfArray: number) {
     console.log('choix du quizz : ' + this.listeMotsService.choixDuQuizz);
-    if ((this.listeMotsService.choixDuQuizz <= 3) || (this.listeMotsService.choixDuQuizz === 5)) {
+    if (this.listeMotsService.choixDuQuizz !== 4) {
       this.reponseQuizzZero = this.loginForm.value.reponseQuizzZeroForm;
       console.log('reponseQuizzZero vaut : ' + this.reponseQuizzZero);
     }
@@ -153,10 +154,29 @@ export class LoginFormComponent implements OnInit {
   }
 
   onPlayHand() {
-    this.audioBis.src = '../../assets/audio1/' + this.motAudio.toLowerCase() + this.wav;
-    console.log('this.audioBis.src');
-    console.log(this.audioBis.src);
-    this.audioBis.play();
+    if (this.motAudio != null) {
+      this.audioBis.src = '../../assets/audio1/' + this.motAudio.toLowerCase() + this.wav;
+      console.log('this.audioBis.src');
+      console.log(this.audioBis.src);
+      this.audioBis.play();
+    }
+    if (this.motAudioMarley != null) {
+      this.audioBis.src = '../../assets/audio1/' + this.motAudioMarley.toLowerCase() + this.wav;
+      console.log('this.audioBis.src');
+      console.log(this.audioBis.src);
+      this.audioBis.play();
+    }
+    console.log(this.motAudio);
+    console.log(this.motAudioMarley);
+  }
+
+  onStopMusic() {
+    if (this.motAudio != null) {
+      this.audioBis.pause();
+    }
+    if (this.motAudioMarley != null) {
+      this.audioBis.pause();
+    }
   }
 
   maFonction() {

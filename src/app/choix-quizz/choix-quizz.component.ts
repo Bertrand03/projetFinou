@@ -15,7 +15,8 @@ export class ChoixQuizzComponent implements OnInit {
     {id: 2, nomQuizz: 'Corps Humain'},
     {id: 3, nomQuizz: 'Divers'},
     {id: 4, nomQuizz: 'Trouve le mot en Anglais'},
-    {id: 5, nomQuizz: 'Tendre l\'oreille'}
+    {id: 5, nomQuizz: 'Tendre l\'oreille'},
+    {id: 6, nomQuizz: 'Let\'s play music'}
   ];
 
   quizzTemporel: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
@@ -23,6 +24,7 @@ export class ChoixQuizzComponent implements OnInit {
   quizzCorpsHumain: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
   quizzDivers: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
   quizzPhrases: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
+  quizzMarley: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
   maListeATrouver: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
   quizzAAfficher: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
 
@@ -38,6 +40,7 @@ export class ChoixQuizzComponent implements OnInit {
     this.quizzCorpsHumain = this.listeMotsService.quizzCorpsHumainService;
     this.quizzDivers = this.listeMotsService.quizzDiversService;
     this.quizzPhrases = this.listeMotsService.quizzPhrasesService;
+    this.quizzMarley = this.listeMotsService.quizzMarleyService;
     this.maListeATrouver = this.listeMotsService.maListeDeMotsATrouver;
   }
 
@@ -66,6 +69,10 @@ export class ChoixQuizzComponent implements OnInit {
 
     if (this.indiceChoix === 5) {
       this.quizzAAfficher = this.quizzPhrases;
+    }
+
+    if (this.indiceChoix === 6) {
+      this.quizzAAfficher = this.quizzMarley;
     }
     this.displayOK = true;
     this.donneNomDuQuizz(this.indiceChoix);

@@ -256,6 +256,18 @@ export class ListeMotsService {
     {id: 9, motFrancais: 'Il suffit d\'attendre et de voir', motAnglais: 'Just wait and see', motTrouve: 'non', motAudio: 'waitAndSee'}
   ];
 
+  quizzMarleyService = [
+    {id: 0, motFrancais: 'Bruler et piller', motAnglais: 'Burnin\' and lootin\'', motTrouve: 'non', motAudioMarley: 'bal-0'},
+    {id: 1, motFrancais: 'Ce matin je me suis reveille dans un couvre feu (carfew)', motAnglais: 'This morning I woke up in a carfew', motTrouve: 'non', motAudioMarley: 'bal-1'},
+    {id: 2, motFrancais: 'Oh mon dieu, j\'etais un prisonnier moi aussi', motAnglais: 'Oh god, I was a prisoner too', motTrouve: 'non', motAudioMarley: 'bal-2'},
+    {id: 3, motFrancais: 'Qui ne pouvait reconnaitre (reconize) les visages devant moi', motAnglais: 'Could not reconize the faces standing over me', motTrouve: 'non', motAudioMarley: 'bal-3'},
+    {id: 4, motFrancais: 'Ils etaient tous habilles en uniformes de brutalite', motAnglais: 'They are all dressed in uniforms of brutality', motTrouve: 'non', motAudioMarley: 'bal-4'},
+    {id: 5, motFrancais: 'Combien de rivières devrons nous traverser', motAnglais: 'How many rivers do you have to cross', motTrouve: 'non', motAudioMarley: 'bal-5'},
+    {id: 6, motFrancais: 'Avant de pouvoir parler au patron', motAnglais: 'Before we can talk to the boss', motTrouve: 'non', motAudioMarley: 'bal-6'},
+    {id: 7, motFrancais: 'Tout ce que nous avions, il semble que nous l\'ayons perdu', motAnglais: 'All that we got, it seems we have lost', motTrouve: 'non', motAudioMarley: 'bal-7'},
+    {id: 8, motFrancais: 'Nous avons vraiment payé le prix fort', motAnglais: 'We must have really paid the cost', motTrouve: 'non', motAudioMarley: 'bal-8'}
+  ];
+
   quizzAAfficherService: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
 
   motsNonTrouves = [];
@@ -304,6 +316,11 @@ export class ListeMotsService {
     if (this.choixDuQuizz === 5) {
       this.quizzPhrasesService[indexOfArray].motTrouve = 'oui';
       this.quizzAAfficherService = this.quizzPhrasesService;
+    }
+
+    if (this.choixDuQuizz === 6) {
+      this.quizzMarleyService[indexOfArray].motTrouve = 'oui';
+      this.quizzAAfficherService = this.quizzMarleyService;
     }
   }
 
@@ -377,6 +394,9 @@ export class ListeMotsService {
     }
     if (this.choixDuQuizz === 5) {
       this.quizzAAfficherService = this.quizzPhrasesService;
+    }
+    if (this.choixDuQuizz === 6) {
+      this.quizzAAfficherService = this.quizzMarleyService;
     }
     return indiceChoix;
   }
