@@ -14,6 +14,7 @@ export class LoginFormComponent implements OnInit {
   @Input() maListeDeMotsATrouver: Array<object>;
   @Input() quizzTemporel: Array<object>;
   @Input() motTrouve: string;
+  @Input() motAudio: string;
   @Input() data: Array<object>;
   @Output() monOutput = new EventEmitter<number>();
   @Output() exportStringToParent = new EventEmitter<string>();
@@ -68,7 +69,7 @@ export class LoginFormComponent implements OnInit {
 
   onValideUneReponse(indexOfArray: number) {
     console.log('choix du quizz : ' + this.listeMotsService.choixDuQuizz);
-    if (this.listeMotsService.choixDuQuizz <= 3) {
+    if ((this.listeMotsService.choixDuQuizz <= 3) || (this.listeMotsService.choixDuQuizz === 5)) {
       this.reponseQuizzZero = this.loginForm.value.reponseQuizzZeroForm;
       console.log('reponseQuizzZero vaut : ' + this.reponseQuizzZero);
     }
@@ -152,7 +153,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onPlayHand() {
-    this.audioBis.src = '../../assets/audio1/' + this.motAnglais.toLowerCase() + this.wav;
+    this.audioBis.src = '../../assets/audio1/' + this.motAudio.toLowerCase() + this.wav;
     console.log('this.audioBis.src');
     console.log(this.audioBis.src);
     this.audioBis.play();

@@ -243,6 +243,19 @@ export class ListeMotsService {
     {id: 9, motFrancais: 'Orteil', motAnglais: 'Toe', motTrouve: 'non'}
   ];
 
+  quizzPhrasesService = [
+    {id: 0, motFrancais: 'Je vais travailler', motAnglais: 'I\'m going to work', motTrouve: 'non', motAudio: 'goingToWork'},
+    {id: 1, motFrancais: 'Je reviens vite', motAnglais: 'I\'ll be back soon', motTrouve: 'non', motAudio: 'beBackSoon'},
+    {id: 2, motFrancais: 'Je suis en bonne forme', motAnglais: 'I\'m in good shape', motTrouve: 'non', motAudio: 'goodShape'},
+    {id: 3, motFrancais: 'J\'y travaille', motAnglais: 'I\'m working on it', motTrouve: 'non', motAudio: 'workOnIt'},
+    {id: 4, motFrancais: 'J\'ai fait de mon mieux', motAnglais: 'I\'ve done my best', motTrouve: 'non', motAudio: 'doneMyBest'},
+    {id: 5, motFrancais: 'Est-ce votre livre?', motAnglais: 'Is this your book?', motTrouve: 'non', motAudio: 'thisYourBook'},
+    {id: 6, motFrancais: 'C\'est une longue histoire', motAnglais: 'It\'s a long story', motTrouve: 'non', motAudio: 'longStory'},
+    {id: 7, motFrancais: 'Tout est de ma faute', motAnglais: 'It\'s all my fault', motTrouve: 'non', motAudio: 'allMyFault'},
+    {id: 8, motFrancais: 'Juste quelques mois', motAnglais: 'Just a few months', motTrouve: 'non', motAudio: 'justFewMonths'},
+    {id: 9, motFrancais: 'Il suffit d\'attendre et de voir', motAnglais: 'Just wait and see', motTrouve: 'non', motAudio: 'waitAndSee'}
+  ];
+
   quizzAAfficherService: Array<{id: number, motFrancais: string, motAnglais: string, motTrouve: string}>;
 
   motsNonTrouves = [];
@@ -286,6 +299,11 @@ export class ListeMotsService {
     if (this.choixDuQuizz === 4) {
       this.maListeDeMotsATrouver[indexOfArray].motTrouve = 'oui';
       this.quizzAAfficherService = this.maListeDeMotsATrouver;
+    }
+
+    if (this.choixDuQuizz === 5) {
+      this.quizzPhrasesService[indexOfArray].motTrouve = 'oui';
+      this.quizzAAfficherService = this.quizzPhrasesService;
     }
   }
 
@@ -356,6 +374,9 @@ export class ListeMotsService {
     }
     if (this.choixDuQuizz === 4) {
       this.quizzAAfficherService = this.maListeDeMotsATrouver;
+    }
+    if (this.choixDuQuizz === 5) {
+      this.quizzAAfficherService = this.quizzPhrasesService;
     }
     return indiceChoix;
   }
