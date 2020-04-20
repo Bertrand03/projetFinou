@@ -177,7 +177,7 @@ export class ListeMotsService {
     {id: 0, motAnglais: 'To crouch', motFrancais: 'S\'accroupir', motTrouve: 'non'},
     {id: 1, motAnglais: 'Because of', motFrancais: 'A cause de', motTrouve: 'non'},
     {id: 2, motAnglais: 'Short cut', motFrancais: 'Raccourci', motTrouve: 'non'},
-    {id: 3, motAnglais: 'Take a shower', motFrancais: 'Prendre une douche', motTrouve: 'non'},
+    {id: 3, motAnglais: 'To take a shower', motFrancais: 'Prendre une douche', motTrouve: 'non'},
     {id: 4, motAnglais: 'Thanks to', motFrancais: 'Grace a', motTrouve: 'non'},
     {id: 5, motAnglais: 'To fix', motFrancais: 'Reparer', motTrouve: 'non'},
     {id: 6, motAnglais: 'To forget', motFrancais: 'Oublier', motTrouve: 'non'},
@@ -238,7 +238,7 @@ export class ListeMotsService {
     {id: 4, motFrancais: 'Jambe', motAnglais: 'Leg', motTrouve: 'non'},
     {id: 5, motFrancais: 'Coude', motAnglais: 'Elbow', motTrouve: 'non'},
     {id: 6, motFrancais: 'Oreille', motAnglais: 'Ear', motTrouve: 'non'},
-    {id: 7, motFrancais: 'Jambe', motAnglais: 'Leg', motTrouve: 'non'},
+    {id: 7, motFrancais: 'Bouche', motAnglais: 'Mouth', motTrouve: 'non'},
     {id: 8, motFrancais: 'Cou', motAnglais: 'Neck', motTrouve: 'non'},
     {id: 9, motFrancais: 'Orteil', motAnglais: 'Toe', motTrouve: 'non'}
   ];

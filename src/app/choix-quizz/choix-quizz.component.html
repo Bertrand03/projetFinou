@@ -1,5 +1,5 @@
-<ul>
-  <li *ngFor="let theme of tabChoixQuizz;">
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let theme of tabChoixQuizz;">
     <button (click)="onValiderChoix(theme.id)">Quizz : {{theme.nomQuizz}}</button></li>
 </ul>
 

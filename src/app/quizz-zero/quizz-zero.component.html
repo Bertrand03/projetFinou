@@ -15,7 +15,7 @@
                 'list-group-item-success': motTrouve === 'oui',
                 'list-group-item-danger': motTrouve === 'non'}"
           *ngFor="let ligne of quizzAAfficher; let i = index;">
-        <h4>{{ligne.id}} - {{ligne.motFrancais}} - Mot trouve : {{ligne.motTrouve}} .</h4>
+        <h4>{{ligne.id}} - {{ligne.motFrancais}}.</h4>
         <app-login-form
           [id]="ligne.id"
           [motFrancais]="ligne.motFrancais"

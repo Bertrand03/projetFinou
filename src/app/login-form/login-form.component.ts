@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   maListeDeMots = [];
   scoreJoueur = 0;
-  nbReponses = this.listeMotsService.maListeDeMotsATrouver.length;
+  nbReponses = this.listeMotsService.quizzAAfficherService.length;
   cptNbOui = 0;
 
   msbapTitle = 'Audio Title';
@@ -38,10 +38,13 @@ export class LoginFormComponent implements OnInit {
   displayPlayer = false;
 
   audio: any;
+  audioBis: any;
   premierCoup = 0;
   reponseUser: string;
   reponseQuizzZero: string;
   choixDuQuizz = this.listeMotsService.choixDuQuizz;
+  hand = 'hand';
+  wav = '.wav';
 
   constructor(private fb: FormBuilder, private listeMotsService: ListeMotsService) {
   }
@@ -55,7 +58,10 @@ export class LoginFormComponent implements OnInit {
     this.maListeDeMots = this.listeMotsService.maListeDeMotsATrouver;
 
     this.audio = new Audio();
+    this.audioBis = new Audio();
     this.audio.src = '../../assets/audio1/applause.mp3';
+    // this.audioBis.src = '../../assets/audio1/hand.wav';
+    // this.audioBis.src = '../../assets/audio1';
     this.audio.load();
 
   }
@@ -143,6 +149,13 @@ export class LoginFormComponent implements OnInit {
     // audio.src = 'C:/Users/bertrand.cerot/Downloads/applause.mp3';
     // audio.load();
     this.audio.play();
+  }
+
+  onPlayHand() {
+    this.audioBis.src = '../../assets/audio1/' + this.motAnglais.toLowerCase() + this.wav;
+    console.log('this.audioBis.src');
+    console.log(this.audioBis.src);
+    this.audioBis.play();
   }
 
   maFonction() {
